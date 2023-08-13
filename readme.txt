@@ -1,3 +1,3 @@
-Average Mark Calculation
+Average Mark Calculation Website
 
 Updating...

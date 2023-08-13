@@ -1,0 +1,79 @@
+@media (max-width: 576px) {
+    .carousel {
+        display: flex;
+        order: 1;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+
+a.active {
+    color: white;
+}  
+
+#profile {
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+}
+
+#profile:hover {
+    cursor: pointer;
+}
+
+.header {
+    font-size: 30px;
+    font-weight: 400;
+    color: aliceblue;
+}
+
+a.header:hover {
+    color: blue;
+}
+
+li:hover {
+    color: white;
+    background-color: #eef0f1;
+    cursor: pointer;
+}
+
+li.list-head:hover {
+    cursor: default;
+}
+
+.badge {
+    font-family: "Fira Code";
+}
+
+.python {
+    background-color: blueviolet;
+}
+
+.paragraph {
+    width:100%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#head2 {
+    font-size: 23px;
+}
+
+#head3 {
+    font-size: 20px;
+}
+
+.JS, .HTML, .CSS {
+    border-radius: 5px;
+}
+
+.CSS {
+    background-color: slateblue;
+}
+
+#text-header, #text-footer {
+    border-radius: 5px;
+}
