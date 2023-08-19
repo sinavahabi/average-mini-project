@@ -1,10 +1,10 @@
-/* Here main content styling starts. */
+/* main content styling */
 .main-container {
   width: 80%;
   margin: 0 auto;
 }
 
-/* First  section starts. */
+/* First  section */
 div.question {
   text-align: center;
 }
@@ -27,7 +27,7 @@ button.start:hover {
   cursor: pointer;
 }
 
-/* Second section starts. */
+/* Second section starts */
 div.calculate {
   width: 80%;
   height: 500px;
@@ -37,16 +37,21 @@ div.calculate {
   padding: .5em;
 }
 
-/* Add lesson button. */
-button.add {
+/* Add lesson button */
+button.add,
+button.calculate-average {
   display: block;
   font-size: 1.3rem;
-  background-color: #0070ff;
-  color: white;
-  border: 2px solid transparent;
   border-radius: .2em;
   padding: 1rem;
   margin: 0 auto .5em auto;
+}
+
+button.add {
+  background-color: #0070ff;
+  color: white;
+  border: 2px solid transparent;
+
 }
 
 button.add:hover {
@@ -60,12 +65,39 @@ button.add:active {
   background-color: transparent;
 }
 
-/* Forms for each single listen details */
+/* Calculate average button */
+
+button.calculate-average {
+  color: aqua;
+  border: 2px solid aqua;
+  background-color: transparent;
+}
+
+button.calculate-average:hover {
+  cursor: pointer;
+  background-color: rgb(10, 222, 222);
+  color: white;
+  border: 2px solid transparent;
+}
+
+button.calculate-average:active {
+  background-color: transparent;
+  border: 2px solid #fff;
+}
+
+/* Forms for each single lesson details */
 .form-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  margin: 2rem 0;
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
 }
 
 .input-group {
@@ -81,11 +113,35 @@ button.add:active {
   align-items: center;
 }
 
+/* Clear form button */
+button.clear {
+  background-color: transparent;
+  font-size: 1.2rem;
+  border: 2px solid #ff003c;
+  margin: .3em;
+  border-radius: .2em;
+  color: #ff003c;
+  width: 5rem;
+  height: 2.35rem;
+}
+
+button.clear:hover {
+  background-color: #ff003c;
+  color: #fff;
+  border: 2px solid transparent;
+}
+
+button.clear:active {
+  background-color: transparent;
+  border: 2px solid #ff9900;
+  color: #ff9900;
+}
+
 label {
   font-size: 1.3rem;
 }
 
-/* Inputs styles. */
+/* Inputs styles */
 form input {
   color: #fff;
   font-size: 1.1rem;
@@ -96,6 +152,16 @@ form input {
   margin: .3em .5em;
   background-color: transparent;
   border: 2px solid #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 input.title {
@@ -123,14 +189,14 @@ input.unit:focus {
   border: 2px solid #ff003c;
 }
 
-/* Button Styles. */
+/* Button Styles */
 .button-group button {
-  font-size: 1.3rem;
+  font-size: 1rem;
   border: 2px solid transparent;
   margin: .3em;
   border-radius: .2em;
   color: #fff;
-  width: 6rem;
+  width: 4rem;
   height: 2.35rem;
 }
 
@@ -154,13 +220,13 @@ input.unit:focus {
 }
 
 .button-group button.edit {
-  background-color: #ffa700;
+  background-color: rgb(255, 145, 0);
 }
 
 .button-group button.edit:active {
   background-color: transparent;
-  border: 2px solid #ffa700;
-  color: #ffa700;
+  border: 2px solid rgb(255, 145, 0);
+  color: rgb(255, 145, 0);
 }
 
 .button-group button.delete {
@@ -171,4 +237,33 @@ input.unit:focus {
   background-color: transparent;
   border: 2px solid #ff0024;
   color: #ff0024;
+}
+
+/* Error messages style */
+form div.form-container div.input-group div {
+  position: absolute;
+}
+
+small {
+  font: bold .8rem Arial, Helvetica, sans-serif;
+  color: red;
+  top: -39px;
+  display: block ruby;
+  position: absolute;
+}
+
+small.invalid-mark-number,
+small.invalid-mark {
+  left: 80px;
+
+}
+
+small.invalid-unit-number,
+small.invalid-unit {
+  left: 336px;
+}
+
+small.empty-value,
+small.short-length {
+  left: -310px;
 }

@@ -22,3 +22,8 @@ button.start:active {
   color: rgb(0, 255, 106);
   background-color: transparent;
 }
+
+span.empty-field {
+  color: red;
+  display: block;
+}
