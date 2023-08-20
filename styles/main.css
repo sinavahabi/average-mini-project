@@ -30,7 +30,8 @@ button.start:hover {
 /* Second section starts */
 div.calculate {
   width: 80%;
-  height: 500px;
+  min-height: 600px;
+  height: auto;
   margin: .5em auto;
   border: 2px solid #fff;
   border-radius: .2em;
@@ -44,7 +45,7 @@ button.calculate-average {
   font-size: 1.3rem;
   border-radius: .2em;
   padding: 1rem;
-  margin: 0 auto .5em auto;
+  margin: .5em auto 1em auto;
 }
 
 button.add {
@@ -92,6 +93,27 @@ button.calculate-average:active {
   justify-content: space-around;
   align-items: center;
   margin: 2rem 0;
+}
+
+/* Error and valid icons style inside each input */
+div.icon-container {
+  position: absolute;
+}
+
+i.fa-exclamation-circle,
+i.fa-check-circle {
+  position: absolute;
+  bottom: 13px;
+  font-size: 1.3rem;
+  display: none;
+}
+
+i.fa-exclamation-circle {
+  color: #ff2e2e;
+}
+
+i.fa-check-circle {
+  color: #1ee61e;
 }
 
 .clear-btn {
@@ -168,25 +190,12 @@ input.title {
   width: 15rem;
 }
 
-input.title:focus {
-  border: 2px solid #00c3ff;
-}
-
 input.mark {
   width: 8rem;
-
-}
-
-input.mark:focus {
-  border: 2px solid #7300ff;
 }
 
 input.unit {
   width: 6rem;
-}
-
-input.unit:focus {
-  border: 2px solid #ff003c;
 }
 
 /* Button Styles */
@@ -239,31 +248,37 @@ input.unit:focus {
   color: #ff0024;
 }
 
-/* Error messages style */
-form div.form-container div.input-group div {
-  position: absolute;
+/* Calculation error message style */
+div.calculate-error {
+  background-color: #ff003c;
+  color: #fff;
+  border-radius: .2em;
+  margin: 1rem auto;
+  width: 80%;
+  padding: 0.3em;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-small {
-  font: bold .8rem Arial, Helvetica, sans-serif;
-  color: red;
-  top: -39px;
-  display: block ruby;
-  position: absolute;
+p.error-text {
+  font-weight: bold;
 }
 
-small.invalid-mark-number,
-small.invalid-mark {
-  left: 80px;
-
+button.close-button {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: .2em;
 }
 
-small.invalid-unit-number,
-small.invalid-unit {
-  left: 336px;
+button.close-button:hover {
+  border: 2px solid #fff;
 }
 
-small.empty-value,
-small.short-length {
-  left: -310px;
+i.material-icons {
+  color: #fff;
+  font-size: 1.3rem;
+  display: block;
 }

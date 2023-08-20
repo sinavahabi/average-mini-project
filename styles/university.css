@@ -1,6 +1,7 @@
 @import url("navbar.css");
 @import url("main.css");
 
+/* University page specific styles */
 h1 span.university-header {
   text-decoration: underline;
 }
@@ -23,7 +24,15 @@ button.start:active {
   background-color: transparent;
 }
 
-span.empty-field {
-  color: red;
-  display: block;
+/* Valid and error icons coordinates */
+i.title-valid-icon, i.title-error-icon {
+  left: 341px;
+}
+
+i.mark-valid-icon, i.mark-error-icon {
+  left: 235px;
+}
+
+i.unit-valid-icon, i.unit-error-icon {
+  left: 184px;
 }

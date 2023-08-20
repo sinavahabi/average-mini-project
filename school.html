@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>School page</title>
   <link rel="stylesheet" href="styles/school.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="styles/icons/icons-style.js"></script>
 </head>
 
@@ -61,10 +62,23 @@
           <form>
             <div class="form-container">
               <div class="input-group">
-                <label for="title">lesson title:</label>
-                <input id="title" class="title" type="text" minlength="3" maxlength="50">
-                <label for="mark">lesson mark:</label>
-                <input id="mark" class="mark" type="number">
+                
+                <div class="title">
+                  <label for="title">lesson title:</label>
+                  <input id="title" class="title" type="text" minlength="3" maxlength="50">
+                  <div class="icon-container">
+                    <i class="fas fa-exclamation-circle"></i>
+                  </div>      
+                </div>
+                
+                <div class="mark">
+                  <label for="mark">lesson mark:</label>
+                  <input id="mark" class="mark" type="number">
+                  <div class="icon-container">
+                    <i class='fas fa-check-circle'></i>
+                  </div>
+                </div>
+
               </div>
               <div class="button-group">
                 <button type="button" class="save">save</button>

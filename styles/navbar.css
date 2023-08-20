@@ -18,6 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background-color: rgb(255, 242, 0);
   padding: 0 .5em;
 }
