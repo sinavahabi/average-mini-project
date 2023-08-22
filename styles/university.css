@@ -2,6 +2,10 @@
 @import url("main.css");
 
 /* University page specific styles */
+h1 {
+  font-size: 1.4rem;
+}
+
 h1 span.university-header {
   text-decoration: underline;
 }

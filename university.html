@@ -12,72 +12,112 @@
 
 <body>
   <header>
-    <nav>
-      <div class="navbar-container">
-        <div class="logo">
-          <h1>
-            <span class="university-header">University</span> Average Mark Calculation
-          </h1>
+    <section class="navbar">
+      <nav>
+        <div class="navbar-container">
+          <div class="logo">
+            <h1>
+              <span class="university-header">University</span> Average Mark Calculation
+            </h1>
+          </div>
+          <div class="menu">
+            <ul class="nav-list">
+              <li title="home">
+                <a href="index.html">
+                  <i class='fas fa-home'></i>Home
+                </a>
+              </li>
+              <li class="active" title="university mark calculation">
+                <a href="university.html">
+                  <i class="fas fa-university"></i>University
+                </a>
+              </li>
+              <li title="school mark calculation">
+                <a href="school.html">
+                  <i class='fas fa-school'></i>School
+                </a>
+              </li>
+              <li title="more information about this page">
+                <a href="help.html" target="_blank">
+                  <i class='far fa-question-circle'></i>Help
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="menu">
-          <ul class="nav-list">
-            <li title="home">
-              <a href="index.html">
-                <i class='fas fa-home'></i>Home
-              </a>
-            </li>
-            <li class="active" title="university mark calculation">
-              <a href="university.html">
-                <i class="fas fa-university"></i>University
-              </a>
-            </li>
-            <li title="school mark calculation">
-              <a href="school.html">
-                <i class='fas fa-school'></i>School
-              </a>
-            </li>
-            <li title="more information about this page">
-              <a href="help.html" target="_blank">
-                <i class='far fa-question-circle'></i>Help
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <div class="main-container">
-
-      <section class="question">
+      </nav>
+    </section>
+    <section class="question">
+      <div class="question-container">
         <div class="question">
           <h2 class="start">Ready to calculate your university average mark?</h2>
           <button class="start" title="calculate average mark">Let's Do It!</button>
         </div>
-      </section>
+      </div>
+    </section>
+  </header>
 
-      <section class="calculate">
-        <div class="calculate">
-          <div class="top">
-            <button class="add" title="add a lesson">Add New Lesson</button>
+  <div class="row">
+    <main>
+      <div class="main-container">
+        <section class="calculate">
+          <div class="calculate">
+            <div class="top">
+              <button class="add" title="add a lesson">Add New Lesson</button>
+            </div>
+            <div class="forms">
+              <!-- New Forms -->
+            </div>
+            <div class="bottom">
+              <button class="calculate-average" title="ready to calculate?">Calculate Average Mark</button>
+            </div>
           </div>
-          <div class="forms">
-            <!-- New Forms -->
+        </section>
+        <!-- <section class="output">
+          <div class="output">
+            output here
           </div>
-          <div class="bottom">
-            <button class="calculate-average" title="ready to calculate?">Calculate Average Mark</button>
-          </div>
+        </section> -->
+      </div>
+    </main>
+    <aside>
+      <div class="sidebar">
+        <div class="tips">
+          <ul class="tips-list">
+            <li class="tip-top">
+              <h3>Tips!</h3>
+            </li>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Don't leave any fields empty to calculate your average score!
+            </li>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Lesson title value cannot be less than 3 characters!
+            </li>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Lesson mark value should be a numeric value between 1-20!
+            </li>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Lesson unit value should be a numeric value between 1-5!
+            </li>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Instead of zero number value for mark input use "1"!
+            </li>
+            <li class="tip-bottom">
+              <h4>Don't forget to <span class="save-tip">save</span> changes for each form!</h4>
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </aside>
+  </div>
 
-      <section class="output">
-        <div class="output">
-          output here
-        </div>
-      </section>
-    </div>
-  </main>
   <footer></footer>
+
   <script src="scripts/university.js"></script>
 </body>
 

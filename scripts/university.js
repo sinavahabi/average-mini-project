@@ -1,17 +1,84 @@
 "use strict";
 
-// Counter that will increase by one each time "Add New Lesson" button is clicked  
-let num = 0;
-
 // Get elements by DOM searching
+const startButton = document.querySelector("button.start");
+const tipsContainer = document.querySelector("div.tips");
+const tipsList = document.querySelector("ul.tips-list");
+const questionContainer = document.querySelector("div.question");
+const calculateContainer = document.querySelector("div.calculate");
 const addButton = document.querySelector("button.add");
 const calculateButton = document.querySelector("button.calculate-average");
 const mainFormsContent = document.querySelector("div.forms");
+const topContainer = document.querySelector("div.top");
+const bottomContainer = document.querySelector("div.bottom");
+
+/* Create error message for calculation process */
+// Div element
+const errorContainer = document.createElement("div");
+errorContainer.className = "error calculate-error";
+
+// P element
+const errorText = document.createElement("p");
+errorText.classList = "text error-text";
+errorText.innerHTML = "Fix invalid values and <span class=\"save-text\">save</span> changes!";
+errorContainer.append(errorText);
+
+// Button element
+const closeButton = document.createElement("button");
+closeButton.classList = "close close-button";
+closeButton.innerHTML = "<i class=\"material-icons\" title=\"close\">close</i>";
+errorContainer.append(closeButton);
+
+// Counter that will increase by one each time "Add New Lesson" button is clicked  
+let num = 0;
+let errorFlag = true;
+
+// Initialize an empty array check inputs with readonly attribute
+let checkInputs = [];
+
+// Initialize array and number variables for calculation process
+let marksValue = [];
+let unitsValue = [];
+let multipliedArray = [];
+let sumUnit = 0;
+let sumResult = 0;
+
+
+// Actions defined for "Let's Do It" button
+startButton.addEventListener("click", () => {
+  questionContainer.style.top = "1px";
+  questionContainer.style.opacity = 0;
+
+  setTimeout(() => {
+    tipsContainer.style.borderColor = "#fff";
+    calculateContainer.style.borderColor = "#fff";
+    questionContainer.remove();
+  }, 4000);
+
+  tipsContainer.style.width = "96%";
+  tipsContainer.style.minHeight = "449px";
+  tipsContainer.style.height = "auto";
+
+  calculateContainer.style.width = "80%";
+  calculateContainer.style.minHeight = "449px";
+  calculateContainer.style.height = "auto";
+
+
+
+  setTimeout(() => {
+    tipsList.style.display = "block";
+    topContainer.style.display = "block";
+    bottomContainer.style.display = "block";
+  }, 6000);
+})
 
 
 // Actions defined for "Add New Lesson" button
 addButton.addEventListener("click", () => {
   num++;
+  calculateButton.disabled = false;
+  calculateButton.style.opacity = 1;
+  calculateButton.style.cursor = "pointer";
   // Create form element
   const createForm = document.createElement("form");
   createForm.id = `form-${num}`
@@ -57,6 +124,7 @@ addButton.addEventListener("click", () => {
   createForm.innerHTML = formContent;
   mainFormsContent.append(createForm);
 });
+
 
 // Define this function to handle hiding/showing error messages dynamically for each specific input
 function errorMessage(element, Color, borderWidth, iconFlag) {
@@ -114,30 +182,30 @@ const saveForm = e => {
   // Form validation and data saving
   const inputGroup = e.target.parentElement.previousSibling.previousSibling.childNodes;
   // Accessing each form element by DOM navigation 
-    inputGroup.forEach(element => {
-      // Accessing each form input element by DOM navigation 
-      if (element.tagName === "DIV") {
-        const inputElem = element.childNodes[3];
-        
-        // Title input element 
-        if (inputElem.className === "title") {
-          const titleInput = inputElem;
-          textValidator(titleInput.value, titleInput);
-        }
+  inputGroup.forEach(element => {
+    // Accessing each form input element by DOM navigation 
+    if (element.tagName === "DIV") {
+      const inputElem = element.childNodes[3];
 
-        // Mark input element
-        if (inputElem.className === "mark") {
-          const markInput = inputElem;
-          numberValidator(markInput.value, markInput, 20);
-        }
-
-        // Unit input element
-        if (inputElem.className === "unit") {
-          const unitInput = inputElem;
-          numberValidator(unitInput.value, unitInput, 5);
-        }
+      // Title input element 
+      if (inputElem.className === "title") {
+        const titleInput = inputElem;
+        textValidator(titleInput.value, titleInput);
       }
-    });
+
+      // Mark input element
+      if (inputElem.className === "mark") {
+        const markInput = inputElem;
+        numberValidator(markInput.value, markInput, 20);
+      }
+
+      // Unit input element
+      if (inputElem.className === "unit") {
+        const unitInput = inputElem;
+        numberValidator(unitInput.value, unitInput, 5);
+      }
+    }
+  });
 };
 
 // "Edit" button actions
@@ -170,67 +238,82 @@ const delForm = elem => {
 };
 
 
-/* TO BE CONTINUED... */
-
-
-// Create error message for calculation process
-// Div element
-const errorContainer = document.createElement("div");
-errorContainer.className = "error calculate-error";
-
-// P element
-const errorText = document.createElement("p");
-errorText.classList = "text error-text";
-errorText.innerText = "Fix invalid values and save changes!";
-errorContainer.append(errorText);
-
-// Button element
-const closeButton = document.createElement("button");
-closeButton.classList = "close close-button";
-closeButton.innerHTML = "<i class=\"material-icons\" title=\"close\">close</i>";
-errorContainer.append(closeButton);
-
-// Initialize array and number variables
-let marksOutput = [];
-let unitsOutput = [];
-let multipliedArray = [];
-let unitSum = 0;
-let resultSum = 0;
-
-
 // Actions defined after "Calculate Average Mark" clicked
+calculateButton.addEventListener("click", () => {
+  // Get all available inputs the moment this button is clicked
+  const allInputs = document.querySelectorAll("input");
+  if (document.querySelector("form")) {
+    // Iterate over input list to check if input valid values are saved or not
+    allInputs.forEach(input => {
+      if (input && !input.readOnly) {
+        // Add them to an array if they're not saved yet with valid values
+        checkInputs.push(input);
+      }
+    });
+
+    // When there is no index left on the array error flag will be false and calculation process begins
+    if (checkInputs.length === 0) {
+      errorFlag = false;
+    } else {
+      // If not, error flag will stay true and error message will be shown to user
+      errorFlag = true;
+    }
+
+    showCalculateError();
+    // Clear array values to avoid logical bug for next click
+    checkInputs = [];
+  } else {
+    calculateButton.disabled = true;
+    calculateButton.style.opacity = .6;
+    calculateButton.style.cursor = "default";
+  }
+
+});
 
 
+function showCalculateError() {
+  if (errorFlag) {
+    if (!document.querySelector("div.calculate-error")) {
+      // Add calculation error message to DOM
+      topContainer.append(errorContainer);
+    }
+  } else {
+    // Remove calculation error message to DOM
+    document.querySelector("div.calculate-error") && document.querySelector("div.calculate-error").remove();
+    console.log(handleCalculation());
+  }
+}
 
 // Define calculation function
-function handleCalculation(markValues, unitValues) {
-  // Access input values by following codes
-  markValues.forEach(mark => {
-    marksOutput.push(Number(mark.value));
+function handleCalculation() {
+  const marksInput = document.querySelectorAll("input.mark");
+  const unitsInput = document.querySelectorAll("input.unit");
+
+  marksInput.forEach(input => {
+    marksValue.push(Number(input.value));
   });
 
-  unitValues.forEach(unit => {
-    unitsOutput.push(Number(unit.value));
+  unitsInput.forEach(input => {
+    unitsValue.push(Number(input.value));
   });
 
   // Multiplying each mark number to each relevant unit count
-  for (let i = 0; i < marksOutput.length; i++) {
-    multipliedArray.push(marksOutput[i] * unitsOutput[i]);
+  for (let i = 0; i < marksValue.length; i++) {
+    multipliedArray.push(marksValue[i] * unitsValue[i]);
   }
 
   // Sum above result values "multipliedArray" together
   multipliedArray.forEach(result => {
-    resultSum += result;
+    sumResult += result;
   });
 
   // Sum unit count values together
-  unitsOutput.forEach(unit => {
-    unitSum += unit;
+  unitsValue.forEach(unit => {
+    sumUnit += unit;
   });
 
   // Divide --> |sum (mark number * unit count) / sum (unit count)|
-  const finalOutput = resultSum / unitSum;
-
+  const finalOutput = sumResult / sumUnit;
   return finalOutput;
 }
 
