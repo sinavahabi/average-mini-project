@@ -2,15 +2,23 @@
 
 // Get elements by DOM searching
 const startButton = document.querySelector("button.start");
+const asideElem = document.querySelector("aside");
+const mainElem = document.querySelector("main");
 const tipsContainer = document.querySelector("div.tips");
 const tipsList = document.querySelector("ul.tips-list");
 const questionContainer = document.querySelector("div.question");
 const calculateContainer = document.querySelector("div.calculate");
 const addButton = document.querySelector("button.add");
 const calculateButton = document.querySelector("button.calculate-average");
+const progressElem = document.querySelector("progress.calculate");
+const outputText = document.querySelector("p.output-text");
 const mainFormsContent = document.querySelector("div.forms");
 const topContainer = document.querySelector("div.top");
 const bottomContainer = document.querySelector("div.bottom");
+const resultContainer = document.querySelector("div.result");
+const resultTexts = document.querySelectorAll("div.result span.result");
+const resultSpan = document.querySelector("div.result span.final");
+const againButtonContainer = document.querySelector("div.again-container");
 
 /* Create error message for calculation process */
 // Div element
@@ -31,7 +39,10 @@ errorContainer.append(closeButton);
 
 // Counter that will increase by one each time "Add New Lesson" button is clicked  
 let num = 0;
+
+// Boolean variables to check some conditions
 let errorFlag = true;
+let calculationIsDone = false;
 
 // Initialize an empty array check inputs with readonly attribute
 let checkInputs = [];
@@ -43,28 +54,41 @@ let multipliedArray = [];
 let sumUnit = 0;
 let sumResult = 0;
 
+// Define a function  to disable or enable a specific button element on different circumstances
+function buttonHandler(buttonElem, disabledVal, opacityVal, cursorVal) {
+  buttonElem.disabled = disabledVal;
+  buttonElem.style.opacity = opacityVal;
+  buttonElem.style.cursor = cursorVal;
+}
+
+// Disable calculate button when program starts
+buttonHandler(calculateButton, true, .6, "default");
+
 
 // Actions defined for "Let's Do It" button
 startButton.addEventListener("click", () => {
-  questionContainer.style.top = "1px";
+  // Move the element to the top with CSS transition property, Then disappear slowly
+  questionContainer.style.top = "0";
   questionContainer.style.opacity = 0;
 
+  // Both containers will not be displayed until previous element vanishes (takes 4 seconds until previous element action is done) 
   setTimeout(() => {
     tipsContainer.style.borderColor = "#fff";
     calculateContainer.style.borderColor = "#fff";
     questionContainer.remove();
   }, 4000);
 
-  tipsContainer.style.width = "96%";
+  // Style tips container as it should look like 
+  tipsContainer.style.width = "80%";
   tipsContainer.style.minHeight = "449px";
   tipsContainer.style.height = "auto";
 
+  // Style tips container as it should look like 
   calculateContainer.style.width = "80%";
   calculateContainer.style.minHeight = "449px";
   calculateContainer.style.height = "auto";
 
-
-
+  // Display containers content after all previous actions are done
   setTimeout(() => {
     tipsList.style.display = "block";
     topContainer.style.display = "block";
@@ -76,9 +100,12 @@ startButton.addEventListener("click", () => {
 // Actions defined for "Add New Lesson" button
 addButton.addEventListener("click", () => {
   num++;
-  calculateButton.disabled = false;
-  calculateButton.style.opacity = 1;
-  calculateButton.style.cursor = "pointer";
+
+  // Enable calculate button if calculation process hasn't started yet
+  if (!calculationIsDone) {
+    buttonHandler(calculateButton, false, 1, "pointer");
+  }
+
   // Create form element
   const createForm = document.createElement("form");
   createForm.id = `form-${num}`
@@ -235,6 +262,12 @@ const delForm = elem => {
   // Remove relevant node (form element)
   const targetForm = elem.closest("form");
   targetForm.remove();
+
+  // Disable calculation button when there is no form left
+  const forms = document.querySelectorAll("form");
+  if (forms && forms.length === 0) {
+    buttonHandler(calculateButton, true, .6, "default");
+  }
 };
 
 
@@ -263,14 +296,20 @@ calculateButton.addEventListener("click", () => {
     // Clear array values to avoid logical bug for next click
     checkInputs = [];
   } else {
-    calculateButton.disabled = true;
-    calculateButton.style.opacity = .6;
-    calculateButton.style.cursor = "default";
+    buttonHandler(calculateButton, true, .6, "default");
   }
 
 });
 
 
+// Close button action for calculation error message
+closeButton.addEventListener("click", e => {
+  // Find target element with DOM navigation and remove error message
+  e.target.parentElement.parentElement.remove();
+});
+
+
+// Show calculation error or successful result message
 function showCalculateError() {
   if (errorFlag) {
     if (!document.querySelector("div.calculate-error")) {
@@ -280,7 +319,19 @@ function showCalculateError() {
   } else {
     // Remove calculation error message to DOM
     document.querySelector("div.calculate-error") && document.querySelector("div.calculate-error").remove();
-    console.log(handleCalculation());
+
+    // Set boolean variable to true when calculation is happening successfully
+    calculationIsDone = true;
+
+    // Disable calculate button and add new lesson when calculation process begins
+    buttonHandler(calculateButton, true, .6, "default");
+    buttonHandler(addButton, true, .6, "default");
+
+    // Do output math
+    handleCalculation();
+
+    // Show output on UI
+    showOutput();
   }
 }
 
@@ -313,14 +364,63 @@ function handleCalculation() {
   });
 
   // Divide --> |sum (mark number * unit count) / sum (unit count)|
-  const finalOutput = sumResult / sumUnit;
-  return finalOutput;
+  let finalOutput = sumResult / sumUnit;
+
+  // Change output display colors on UI accordingly 
+  if (finalOutput >= 17) {
+    resultSpan.style.color = "#1ee61e";
+  }
+  else if (finalOutput < 17 && finalOutput >= 12) {
+    resultSpan.style.color = "#0064ff";
+  } else {
+    resultSpan.style.color = "tomato";
+  }
+
+  // Make output number length limited to 5 characters
+  finalOutput = String(finalOutput).slice(0, 5);
+  resultSpan.innerHTML = `${finalOutput}`;
+  return resultSpan;
 }
 
+// Define output styles modifications function
+function showOutput() {
+  // UI changes after calculation process successfully begins
+  calculateButton.style.margin = "6rem auto";
+  calculateButton.style.transform = "rotate(720deg)";
+  calculateButton.style.transition = "transform 3s";
+  // Show progress bar styles modifications
+  progressElem.hidden = false;
+  outputText.hidden = false;
 
-// Close button action for calculation error message
-closeButton.addEventListener("click", e => {
-  // Find target element with DOM navigation and remove error message
-  e.target.parentElement.parentElement.remove();
-});
+  const progressInterval = setInterval(() => {
+    progressElem.value += .1655;
+  }, 450);
 
+  setTimeout(() => {
+    clearInterval(progressInterval);
+    outputText.innerText = "Done ✔️";;
+    progressElem.value = 1;
+  }, 3000);
+
+  // Disappear all elements to show final output after
+  calculateContainer.style.opacity = 0;
+  tipsContainer.style.opacity = 0;
+  resultContainer.style.width = "50%";
+
+  // Show output  result in UI
+  resultTexts.forEach(span => {
+    span.style.opacity = 1;
+  });
+
+  setTimeout(() => {
+    calculateContainer.innerHTML = "";
+    asideElem.remove();
+    mainElem.style.width = "100%";
+    resultContainer.style.height = "65px";
+    resultContainer.style.borderColor = "slateblue";
+  }, 7000);
+
+  resultContainer.style.top = "-450px";
+  againButtonContainer.style.opacity = 1;
+  againButtonContainer.style.top  = "-350px";
+}

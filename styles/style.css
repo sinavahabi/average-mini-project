@@ -5,3 +5,22 @@
   width: 80%;
   margin: 0 auto;
 }
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: .7rem .5rem;
+  font-size: 1.2rem;
+}
+
+p.author {
+  color: #0070ff;
+}
+
+p.date {
+  color: #ff2e2e;
+  font-family: "Cascadia Code";
+}

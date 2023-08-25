@@ -42,14 +42,16 @@ h2.start {
   font-weight: bold;
   display: inline-block;
   margin-right: 1em;
+  font-size: 2rem;
 }
 
 button.start {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   border-radius: .2em;
   border: 2px solid transparent;
-  padding: .5em;
+  padding: .6em;
   color: #fff;
+  ;
 }
 
 button.start:hover {
@@ -58,6 +60,7 @@ button.start:hover {
 
 /* Second section starts */
 div.calculate {
+  opacity: 1;
   width: 0;
   min-height: 0;
   height: 0;
@@ -65,7 +68,7 @@ div.calculate {
   border: 2px solid #333;
   border-radius: .2em;
   padding: .5em;
-  transition: width 2s ease 4s, height 2s ease 4s, min-height 2s ease 4s;
+  transition: width 2s ease 4s, height 2s ease 4s, min-height 2s ease 4s, opacity 2s ease-out 4.5s;
 }
 
 div.top,
@@ -73,9 +76,62 @@ div.bottom {
   display: none;
 }
 
+/* Styles when calculation process begins */
+div.output {
+  text-align: center;
+}
+
+progress.calculate {
+  width: 50%;
+  font-size: 2rem;
+}
+
+p.output-text {
+  color: #0064ff;
+  font-size: 1.4rem;
+}
+
+/* Styles when final result is shown */
+div.result {
+  margin: 0 auto;
+  position: relative;
+  top: -100px;
+  width: 0;
+  height: 0;
+  font-size: 2.5em;
+  border-bottom: thick solid transparent;
+  text-align: center;
+  transition: width 2s ease 7s, height 2s ease 7s, top 3s ease-in-out 14s;
+}
+
+p.result {
+  padding: .5rem;
+}
+
+span.result {
+  opacity: 0;
+}
+
+span.first {
+  transition: opacity 1s ease 9s;
+}
+
+span.second {
+  transition: opacity 1s ease 10s;
+}
+
+span.third {
+  transition: opacity 1s ease 11s;
+}
+
+span.final {
+  transition: opacity 2s ease 12s;
+}
+
 /* Add lesson button */
 button.add,
-button.calculate-average {
+button.calculate-average,
+a.again {
   display: block;
   font-size: 1.3rem;
   border-radius: .2em;
@@ -83,19 +139,26 @@ button.calculate-average {
   margin: .5em auto 1em auto;
 }
 
-button.add {
+a.again {
+  display: inline-block;
+}
+
+button.add,
+a.again {
   background-color: #0070ff;
   color: white;
   border: 2px solid transparent;
 
 }
 
-button.add:hover {
+button.add:hover,
+a.again:hover {
   cursor: pointer;
   background-color: #00b7ff;
 }
 
-button.add:active {
+button.add:active,
+a.again:active {
   border: 2px solid #0070ff;
   color: #0070ff;
   background-color: transparent;
@@ -103,9 +166,11 @@ button.add:active {
 
 /* Calculate average button */
 button.calculate-average {
+  margin: 0 auto;
   color: aqua;
   border: 2px solid aqua;
   background-color: transparent;
+  transition: margin 3s;
 }
 
 button.calculate-average:hover {
@@ -325,13 +390,14 @@ span.save-text {
 }
 
 aside div.tips {
+  opacity: 1;
   width: 0;
   margin: 0 auto;
   border: 1px solid #333;
   border-radius: .2em;
   height: 0;
   min-height: 0;
-  transition: width 2s ease 4s, height 2s ease 4s, min-height 2s ease 4s;
+  transition: width 2s ease 4s, height 2s ease 4s, min-height 2s ease 4s, opacity 2s ease-out 4.5s;
 }
 
 aside ul.tips-list {
@@ -341,7 +407,7 @@ aside ul.tips-list {
 }
 
 aside ul.tips-list li {
-  font: 1.3rem Arial;
+  font: 1.2rem Arial;
   border-bottom: 1px solid #fff;
   padding: 0.4em 0.2em;
 }
@@ -368,4 +434,12 @@ aside ul.tips-list li.tip-bottom span.save-tip {
   font-size: 1.5rem;
   color: #1ee61e;
   text-decoration: underline;
+}
+
+.again-container {
+  text-align: center;
+  position: relative;
+  top: 0;
+  opacity: 0;
+  transition: opacity 1s ease 17s, top 2s ease-in-out 18s;
 }

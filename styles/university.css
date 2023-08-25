@@ -29,14 +29,33 @@ button.start:active {
 }
 
 /* Valid and error icons coordinates */
-i.title-valid-icon, i.title-error-icon {
+i.title-valid-icon,
+i.title-error-icon {
   left: 341px;
 }
 
-i.mark-valid-icon, i.mark-error-icon {
+i.mark-valid-icon,
+i.mark-error-icon {
   left: 235px;
 }
 
-i.unit-valid-icon, i.unit-error-icon {
+i.unit-valid-icon,
+i.unit-error-icon {
   left: 184px;
+}
+
+span.first {
+  color: tomato;
+}
+
+span.second {
+  color: #0064ff;
+}
+
+span.third {
+  color: #1ee61e;
+}
+
+span.final {
+  font-family: "Cascadia Code";
 }

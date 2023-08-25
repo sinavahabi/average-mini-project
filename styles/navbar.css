@@ -49,7 +49,7 @@ ul.nav-list li:hover {
 
 
 li.active a {
-  color: rgb(0, 132, 255);
+  color: red;
   font-weight: bold;
 }
 

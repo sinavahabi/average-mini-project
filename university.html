@@ -11,51 +11,53 @@
 </head>
 
 <body>
-  <header>
-    <section class="navbar">
-      <nav>
-        <div class="navbar-container">
-          <div class="logo">
-            <h1>
-              <span class="university-header">University</span> Average Mark Calculation
-            </h1>
+  <div class="header">
+    <header>
+      <section class="navbar">
+        <nav>
+          <div class="navbar-container">
+            <div class="logo">
+              <h1>
+                <span class="university-header">University</span> Average Mark Calculation
+              </h1>
+            </div>
+            <div class="menu">
+              <ul class="nav-list">
+                <li title="home">
+                  <a href="index.html">
+                    <i class='fas fa-home'></i>Home
+                  </a>
+                </li>
+                <li class="active" title="university mark calculation">
+                  <a href="university.html">
+                    <i class='fas fa-graduation-cap'></i>University
+                  </a>
+                </li>
+                <li title="school mark calculation">
+                  <a href="school.html">
+                    <i class='fas fa-school'></i>School
+                  </a>
+                </li>
+                <li title="more information about this page">
+                  <a href="help.html" target="_blank">
+                    <i class='far fa-question-circle'></i>Help
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="menu">
-            <ul class="nav-list">
-              <li title="home">
-                <a href="index.html">
-                  <i class='fas fa-home'></i>Home
-                </a>
-              </li>
-              <li class="active" title="university mark calculation">
-                <a href="university.html">
-                  <i class="fas fa-university"></i>University
-                </a>
-              </li>
-              <li title="school mark calculation">
-                <a href="school.html">
-                  <i class='fas fa-school'></i>School
-                </a>
-              </li>
-              <li title="more information about this page">
-                <a href="help.html" target="_blank">
-                  <i class='far fa-question-circle'></i>Help
-                </a>
-              </li>
-            </ul>
+        </nav>
+      </section>
+      <section class="question">
+        <div class="question-container">
+          <div class="question">
+            <h2 class="start">Ready to calculate your university average mark?</h2>
+            <button class="start" title="calculate average mark">Let's Do It!</button>
           </div>
         </div>
-      </nav>
-    </section>
-    <section class="question">
-      <div class="question-container">
-        <div class="question">
-          <h2 class="start">Ready to calculate your university average mark?</h2>
-          <button class="start" title="calculate average mark">Let's Do It!</button>
-        </div>
-      </div>
-    </section>
-  </header>
+      </section>
+    </header>
+  </div>
 
   <div class="row">
     <main>
@@ -70,14 +72,28 @@
             </div>
             <div class="bottom">
               <button class="calculate-average" title="ready to calculate?">Calculate Average Mark</button>
+              <div class="output">
+                <progress hidden class="calculate" max="1" value="0"></progress>
+                <p hidden class="output-text">calculating...</p>
+              </div>
             </div>
           </div>
         </section>
-        <!-- <section class="output">
-          <div class="output">
-            output here
+        <section class="result">
+          <div class="result">
+            <p class="result">
+              <span class="result first">Your</span>
+              <span class="result second">Average</span>
+              <span class="result third">Mark:</span>
+              <span class="result final"></span>
+            </p>
           </div>
-        </section> -->
+        </section>
+        <section class="again">
+          <div class="again-container">
+            <a href="university.html" class="again" title="wanna go again for another calculation average mark?">Calculate Another Average</a>
+          </div>
+        </section>
       </div>
     </main>
     <aside>
@@ -116,7 +132,10 @@
     </aside>
   </div>
 
-  <footer></footer>
+  <div class="footer">
+    <footer>
+    </footer>
+  </div>
 
   <script src="scripts/university.js"></script>
 </body>
