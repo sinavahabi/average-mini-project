@@ -73,8 +73,8 @@ startButton.addEventListener("click", () => {
 
   // Both containers will not be displayed until previous element vanishes (takes 4 seconds until previous element action is done) 
   setTimeout(() => {
-    tipsContainer.style.borderColor = "#fff";
-    calculateContainer.style.borderColor = "#fff";
+    tipsContainer.style.boxShadow = "0 0 10px rgba(16, 16, 16, .9)";
+    calculateContainer.style.boxShadow = "0 0 10px rgba(16, 16, 16, .9)";
     questionContainer.remove();
   }, 4000);
 
@@ -118,7 +118,7 @@ addButton.addEventListener("click", () => {
       <div class="input-group">
         <div className="title">
           <label for="title-${num}">Lesson Title:</label>
-          <input id="title-${num}" class="title" type="text" maxLength="50" title="enter lesson title">
+          <input id="title-${num}" class="title" type="text" maxLength="50" title="enter lesson title" placeholder="Engineering Mathematics">
           <div class="icon-container">
             <i class="fas fa-exclamation-circle title-error-icon"></i>
             <i class="fas fa-check-circle title-valid-icon"></i>
@@ -126,7 +126,7 @@ addButton.addEventListener("click", () => {
         </div>
         <div className="mark">
           <label for="mark-${num}">Lesson Mark:</label>
-          <input id="mark-${num}" class="mark" type="number" title="enter lesson mark number">
+          <input id="mark-${num}" class="mark" type="number" title="enter lesson mark number" placeholder="17.5">
           <div class="icon-container">
             <i class="fas fa-exclamation-circle mark-error-icon"></i>
             <i class="fas fa-check-circle mark-valid-icon"></i>
@@ -134,7 +134,7 @@ addButton.addEventListener("click", () => {
         </div>
         <div className="unit">
           <label for="unit-${num}">Unit Count:</label>
-          <input id="unit-${num}" class="unit" type="number" title="enter lesson unit count">
+          <input id="unit-${num}" class="unit" type="number" title="enter lesson unit count" placeholder="3">
           <div class="icon-container">
             <i class="fas fa-exclamation-circle unit-error-icon"></i>
             <i class="fas fa-check-circle unit-valid-icon"></i>
@@ -422,5 +422,5 @@ function showOutput() {
 
   resultContainer.style.top = "-450px";
   againButtonContainer.style.opacity = 1;
-  againButtonContainer.style.top  = "-350px";
+  againButtonContainer.style.top = "-350px";
 }

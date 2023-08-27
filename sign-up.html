@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up</title>
+  <link rel="stylesheet" href="styles/sign-up.css">
+  <script src="styles/icons/icons-style.js"></script>
+</head>
+
+<body>
+  <div class="submit-error">
+    <p class="submit-error">Fix invalid form values and try again!</p>
+    <button type="button" class="close">
+      <i class="fas fa-chevron-circle-down" title="hide error"></i>
+    </button>
+  </div>
+  <div class="submit-success">
+    <p class="submit-success">
+      submit is done successfully<i class='fas fa-user-check'></i>
+    </p>
+  </div>
+  <div class="form">
+    <form action="sign-in.html">
+      <div class="elem-container form-header">
+        <h1 class="header">Sign Up Form</h1>
+      </div>
+      <div class="elem-container first-name">
+        <label for="first-name">First Name:</label>
+        <input class="first-name" id="first-name" type="" minlength="3" maxlength="30" pattern="[a-zA-Z\s]+" required
+          autofocus>
+      </div>
+      <div class="elem-container last-name">
+        <label for="last-name">Last Name:</label>
+        <input class="last-name" id="last-name" type="text" minlength="3" pattern="[a-zA-Z\s]+" maxlength="50">
+        <span class="optional">Optional</span>
+      </div>
+      <div class="elem-container email">
+        <label for="email">Email:</label>
+        <input class="email" id="email" type="email" required>
+      </div>
+      <div class="elem-container password">
+        <label for="password">Password:</label>
+        <input class="password" id="password" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$"
+          required>
+          <button type="button" class="check-pass">
+            <i class='far fa-eye'></i>
+          </button>
+      </div>
+      <div class="elem-container btn-container">
+        <button class="submit-btn" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="sign-in">
+    <span class="sign-in">Already have an account?</span>
+    <a href="sign-in.html" class="sign-in">Login</a>
+  </div>
+  <script src="scripts/sign-up.js"></script>
+</body>
+
+</html>

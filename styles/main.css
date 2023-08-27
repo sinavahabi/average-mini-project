@@ -65,7 +65,7 @@ div.calculate {
   min-height: 0;
   height: 0;
   margin: 0 auto;
-  border: 2px solid #333;
+  box-shadow: 0 0 10px #333;
   border-radius: .2em;
   padding: .5em;
   transition: width 2s ease 4s, height 2s ease 4s, min-height 2s ease 4s, opacity 2s ease-out 4.5s;
@@ -393,7 +393,7 @@ aside div.tips {
   opacity: 1;
   width: 0;
   margin: 0 auto;
-  border: 1px solid #333;
+  box-shadow: 0 0 10px #333;
   border-radius: .2em;
   height: 0;
   min-height: 0;
@@ -408,7 +408,7 @@ aside ul.tips-list {
 
 aside ul.tips-list li {
   font: 1.2rem Arial;
-  border-bottom: 1px solid #fff;
+  border-bottom: 3px solid rgba(16, 16, 16, .4);
   padding: 0.4em 0.2em;
 }
 
