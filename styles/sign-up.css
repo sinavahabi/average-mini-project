@@ -1,124 +1,24 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:wght@100;200;300;400;500;600;700;800;900");
+@import url("register.css");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Raleway, sans-serif;
-  background-color: #333;
-  color: #fff;
-  font-size: 1rem;
-}
-
-/* Form styles */
+/* Sign-up page main styles */
 div.form {
-  background-color: #2d2d2d;
-  width: 30%;
-  min-width: 570px;
-  height: auto;
   min-height: 600px;
-  border: 3px solid #464646;
-  border-radius: .2em;
   margin: 7.5% auto .5% auto;
-  padding: 1rem;
 }
 
-/* Form child elements styles */
-div.elem-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.5rem;
-  margin: 1.5em 0;
-}
-
-div.form-header,
-div.btn-container {
-  justify-content: center;
-}
-
-h1.header {
-  color: #ff8226;
-}
-
-/* Input styles */
 input {
-  background-color: transparent;
   width: 75%;
-  height: 2.5rem;
-  padding: .5em;
-  color: #fff;
-  font-size: 1.5rem;
-  border-radius: .3em;
-  outline: none;
-  border: 3px solid #464646;
 }
 
-input:focus {
-  border: 4px solid #0064ff;
-}
-
-div.last-name,
-div.password {
-  position: relative;
-}
-
-input.last-name {
-  padding: .5em 4.7em .5em .5em;
-}
-
-input.password {
-  padding: .5em 1.5em .5em .5em;
-}
-
-span.optional {
-  position: absolute;
-  top: 5px;
-  left: 430px;
-  opacity: .5;
-  border-left: 2px solid #ddd;
-  padding: 0 .1em;
-}
-
-button.check-pass {
-  position: absolute;
-  top: 7px;
-  left: 495px;
-  background-color: transparent;
-  border: none;
-}
-
-i.fa-eye,
-i.fa-eye-slash {
-  color: #ddd;
-}
-
-i.fa-eye:hover,
-i.fa-eye-slash:hover {
-  color: #afff26;
-}
-
-/* Button styles */
 button.submit-btn {
-  font-size: 1.5rem;
-  border-radius: .2em;
   width: 40%;
-  padding: .6rem;
   background-color: transparent;
   color: rgb(7, 244, 113);
   border: thick solid rgb(7, 244, 113);
-
 }
 
 button.submit-btn:hover {
-  cursor: pointer;
-  color: #fff;
   background-color: rgb(7, 244, 113);
-  border: thick solid transparent;
 }
 
 button.submit-btn:active {
@@ -127,118 +27,10 @@ button.submit-btn:active {
   border: thick outset rgb(7, 244, 211);
 }
 
-/* Form validator error container style */
-div.error {
-  color: #fff;
-  background-color: #ff2e2e;
-  border-radius: .2em;
-  padding: .3rem;
-  font: 1.2rem Arial;
-}
-
-/* Submit success message style */
-div.submit-success {
-  width: 100%;
-  background-color: #0093ff;
-  padding: .2em;
-  text-align: center;
-  font-size: 1.5rem;
-  position: fixed;
-  top: -100px;
-  transition: top 2s ease-in-out;
-}
-
-i.fa-user-check {
-  margin: 0 .8em;
-}
-
-i.fa-user-check:hover {
-  color: #fff;
-}
-
-/* Submit error message styles */
-div.submit-error {
-  width: 100%;
-  display: none;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background-color: #ff2e2e;
-  border-bottom: 2px solid #333;
-  padding: .2em;
-  text-align: center;
-  font-size: 1.5rem;
-  position: fixed;
-  top: 0;
-  transition: top 1s ease-in-out;
-}
-
-div.submit-error:hover {
-  background-color: #333;
-  border-bottom: 2px solid #ff2e2e;
-  color: #ff2e2e;
-}
-
-p.submit-error {
-  margin: auto;
-}
-
-button.close {
-  background-color: transparent;
-  border: none;
-}
-
-button.close:hover {
-  cursor: pointer;
-}
-
-i {
-  color: #fff;
-  font-size: 1.6rem;
-}
-
-i:hover {
-  color: #ff2e2e;
-}
-
-/* Sign-in container style */
-div.sign-in {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background-color: #2d2d2d;
-  width: 30%;
-  min-width: 570px;
-  height: auto;
-  min-height: 100px;
-  border: 3px solid #464646;
-  border-radius: .2em;
-  margin: .5% auto;
-  padding: 1rem;
-}
-
 span.sign-in {
   font-size: 1.5rem;
-  color: #ddd;
-  margin: 1rem;
 }
 
 a.sign-in {
-  text-decoration: none;
-  color: #0070ff;
   font-size: 1.6rem;
-  margin: 1rem;
-}
-
-a.sign-in:hover {
-  color: #ff2e73;
-}
-
-a.sign-in:active {
-  color: gold;
-}
-
-a.sign-in:visited {
-  color: slateblue;
 }

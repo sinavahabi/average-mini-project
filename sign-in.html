@@ -6,10 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign in</title>
   <link rel="stylesheet" href="styles/sign-in.css">
+  <script src="styles/icons/icons-style.js"></script>
 </head>
 
 <body>
-
+  <div class="submit-error">
+    <p class="submit-error">Fix invalid form values and try again!</p>
+    <button type="button" class="close">
+      <i class="fas fa-chevron-circle-down" title="hide error"></i>
+    </button>
+  </div>
+  <div class="submit-success">
+    <p class="submit-success">
+      Logged in successfully<i class='fas fa-user-check'></i>
+    </p>
+  </div>
+  <div class="form">
+    <form action="index.html">
+      <div class="elem-container email">
+        <input class="email" id="email" placeholder="Email" type="email" required>
+      </div>
+      <div class="elem-container password">
+        <input class="password" id="password" placeholder="Password" type="password"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$" required>
+        <button type="button" class="check-pass">
+          <i class='far fa-eye'></i>
+        </button>
+      </div>
+      <div class="elem-container btn-container">
+        <button class="submit-btn" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+  <div class="sign-up sign-in">
+    <span class="sign-up sign-in">Don't have an account?</span>
+    <a href="sign-up.html" class="sign-up sign-in">Sign Up</a>
+  </div>
+  <!-- <script src="scripts/sign-up.js"></script> -->
 </body>
 
 </html>

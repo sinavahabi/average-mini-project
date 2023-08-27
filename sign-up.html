@@ -11,14 +11,14 @@
 
 <body>
   <div class="submit-error">
-    <p class="submit-error">Fix invalid form values and try again!</p>
+    <p class="submit-error">Fill the form correctly!</p>
     <button type="button" class="close">
       <i class="fas fa-chevron-circle-down" title="hide error"></i>
     </button>
   </div>
   <div class="submit-success">
     <p class="submit-success">
-      submit is done successfully<i class='fas fa-user-check'></i>
+      Submit is done successfully<i class='fas fa-user-check'></i>
     </p>
   </div>
   <div class="form">
@@ -44,18 +44,18 @@
         <label for="password">Password:</label>
         <input class="password" id="password" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$"
           required>
-          <button type="button" class="check-pass">
-            <i class='far fa-eye'></i>
-          </button>
+        <button type="button" class="check-pass">
+          <i class='far fa-eye'></i>
+        </button>
       </div>
       <div class="elem-container btn-container">
         <button class="submit-btn" type="submit">Submit</button>
       </div>
     </form>
   </div>
-  <div class="sign-in">
-    <span class="sign-in">Already have an account?</span>
-    <a href="sign-in.html" class="sign-in">Login</a>
+  <div class="sign-in sign-up">
+    <span class="sign-in sign-up">Already have an account?</span>
+    <a href="sign-in.html" class="sign-in sign-up">Login</a>
   </div>
   <script src="scripts/sign-up.js"></script>
 </body>
