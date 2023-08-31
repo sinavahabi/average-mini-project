@@ -38,23 +38,27 @@ ul.nav-list {
 }
 
 ul.nav-list li {
-  padding: 1em .2em;
+  padding: 1.1em .2em;
   display: inline-block;
   border-left: 2px solid #333;
 }
 
-ul.nav-list li:hover {
+ul.nav-list li:last-child {
+  padding: .7em 0em .5em .4em;
+}
+
+ul.yellow li:hover {
   background-color: rgba(255, 217, 0, 0.686);
 }
 
 
-li.active a {
+li.active a,
+li.active a.yellow {
   color: red;
   font-weight: bold;
 }
 
-li.active a:hover {
-  color: #fff;
+li.active>a:hover {
   text-decoration: underline;
 }
 
@@ -70,4 +74,189 @@ a:hover {
 
 i {
   margin: 0 .2em;
+}
+
+/* Dropdown styles */
+div.dropdown-menu {
+  position: relative;
+}
+
+button.dropdown-btn {
+  vertical-align: middle;
+  border: none;
+  background-color: transparent;
+  transition: transform .5s ease;
+}
+
+i.dropdown {
+  font-size: 2rem;
+  color: #333;
+}
+
+i.dropdown:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+/* The dropdown container styles */
+
+div.dropdown-container {
+  opacity: 0;
+  position: relative;
+  top: 0px;
+  right: 0px;
+  transition: opacity .5s ease;
+}
+
+div.select {
+  background: #464646;
+  border: 2px solid #fff;
+  font-size: 1.2rem;
+  border-radius: .2em;
+  position: absolute;
+  top: 20px;
+  right: 5px
+}
+
+div.select input.option {
+  outline: none;
+  padding: .6rem .4rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  font-size: 1.3rem;
+  color: #fff;
+  width: 8rem;
+}
+
+div.select input.option:last-of-type {
+  border-bottom: none;
+}
+
+div.theme-container input.option,
+div.menu-color-container input.option {
+  background-color: #909090;
+  font-size: 1.1rem;
+}
+
+div.theme-container input.option:last-of-type {
+  border-bottom: 2px solid #fff;
+}
+
+div.select input.option:hover {
+  background-color: #282828;
+  cursor: pointer;
+}
+
+div.theme-container input.option:hover,
+div.menu-color-container input.option:hover {
+  background-color: #666;
+}
+
+/* Each option icon position and color style */
+span.pos {
+  position: absolute;
+  left: 90px;
+}
+
+i.colors {
+  font-size: 1.7rem;
+}
+
+span.dark-color {
+  top: 53px;
+}
+
+i.dark-color {
+  color: #333;
+}
+
+span.light-color {
+  top: 97px;
+}
+
+i.light-color {
+  color: #fff;
+}
+
+span.yellow-color {
+  top: 100px;
+}
+
+i.yellow-color {
+  color: rgb(255, 242, 0);
+}
+
+span.purple-color {
+  top: 143px;
+}
+
+i.purple-color {
+  color: #835acd;
+}
+
+span.blue-color {
+  top: 185px;
+}
+
+i.blue-color {
+  color: #0070ff;
+}
+
+span.red-color {
+  top: 229px;
+}
+
+i.red-color {
+  color: #ff285a;
+}
+
+/* Light theme styles */
+div.light {
+  background: #fff;
+  border: 2px solid #333;
+}
+
+div.light input.light {
+  border-bottom: 2px solid #333;
+  color: #333;
+}
+
+div.theme-container input.light,
+div.menu-color-container input.light {
+  background-color: #e7e7e7ee;
+}
+
+div.theme-container input.light:last-of-type {
+  border-bottom: 2px solid #333;
+}
+
+div.select input.light:hover {
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+
+div.theme-container input.light:hover,
+div.menu-color-container input.light:hover {
+  background-color: #ddd;
+}
+
+/* Navbar color styles */
+li.active a,
+li.active a.purple,
+li.active a.blue,
+li.active a.red {
+  color: #dfff00;
+}
+
+ul.purple li:hover {
+  background-color: rgba(0, 207, 255, 0.69);
+}
+
+ul.blue li:hover {
+  background-color: #00e7ff;
+}
+
+ul.red li:hover {
+  background-color: #ff9cc1d4;
 }
