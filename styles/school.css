@@ -1,6 +1,7 @@
 @import url("navbar.css");
 @import url("main.css");
 
+/* School page specific styles */
 h1 span.school-header {
   text-decoration: underline;
 }

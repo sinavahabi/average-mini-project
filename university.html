@@ -21,25 +21,29 @@
                 <span class="university-header">University</span> Average Mark Calculation
               </h1>
             </div>
-            <div class="menu">
-              <ul class="nav-list">
-                <li title="home">
-                  <a href="index.html">
-                    <i class='fas fa-home'></i>Home
-                  </a>
-                </li>
-                <li title="sign-in">
+            <div class="register">
+              <ul class="nav-list yellow" id="register">
+                <li title="sign-in" class="sign-in">
                   <a href="sign-in.html">
                     <i class='fas fa-user-check'></i>Sign-in
                   </a>
                 </li>
-                <li title="sign-up">
+                <li title="sign-up" class="sign-up">
                   <a href="sign-up.html">
                     <i class='fas fa-user'></i>Sign-up
                   </a>
                 </li>
+              </ul>
+            </div>
+            <div class="menu">
+              <ul class="nav-list yellow" id="menu">
+                <li title="home">
+                  <a href="home.html">
+                    <i class='fas fa-home'></i>Home
+                  </a>
+                </li>
                 <li class="active" title="university mark calculation">
-                  <a href="university.html">
+                  <a class="yellow" href="university.html">
                     <i class='fas fa-graduation-cap'></i>University
                   </a>
                 </li>
@@ -52,6 +56,57 @@
                   <a href="help.html" target="_blank">
                     <i class='far fa-question-circle'></i>Help
                   </a>
+                </li>
+                <li title="customization">
+                  <div class="dropdown-menu">
+                    <button class="dropdown-btn">
+                      <i class="material-icons dropdown">view_headline
+                      </i>
+                    </button>
+                    <div class="dropdown-container">
+                      <div class="select dark customize-menu">
+
+                        <input data-customize="theme" value="Theme" class="option dark customize" readonly />
+                        <div hidden class="theme-container">
+                          <input data-theme="dark" value="Dark" class="option dark theme" readonly />
+                          <span class="pos dark-color">
+                            <i class='fas fa-check-double dark-color colors'></i>
+                          </span>
+
+                          <input data-theme="light" value="Light" class="option dark theme" readonly />
+                          <span class="pos light-color">
+                            <i class='fas fa-check-double light-color colors'></i>
+                          </span>
+                        </div>
+
+                        <input data-customize="navbar-color" value="Menu Color" class="option dark customize"
+                          readonly />
+                        <div hidden class="menu-color-container">
+                          <input data-color="yellow" value="Yellow" class="option dark color" readonly />
+                          <span class="pos yellow-color">
+                            <i class='fas fa-check-double yellow-color colors'></i>
+                          </span>
+
+                          <input data-color="purple" value="Purple" class="option dark color" readonly />
+                          <span class="pos purple-color">
+                            <i class='fas fa-check-double purple-color colors'></i>
+                          </span>
+
+                          <input data-color="blue" value="Blue" class="option dark color" readonly />
+                          <span class="pos blue-color">
+                            <i class='fas fa-check-double blue-color colors'></i>
+                          </span>
+
+                          <input data-color="red" value="Red" class="option dark color" readonly />
+                          <span class="pos red-color">
+                            <i class='fas fa-check-double red-color colors'></i>
+                          </span>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
                 </li>
               </ul>
             </div>
@@ -101,8 +156,7 @@
         </section>
         <section class="again">
           <div class="again-container">
-            <a href="university.html" class="again"
-              title="wanna go again for another calculation average mark?">Calculate Another Average</a>
+            <a href="university.html" class="again">Calculate Another Average</a>
           </div>
         </section>
       </div>
@@ -143,11 +197,20 @@
     </aside>
   </div>
 
-  <div class="footer">
-    <footer>
-    </footer>
-  </div>
+  <footer>
+    <div class="author">
+      <p class="author">
+        Author: sina vahabi
+      </p>
+    </div>
+    <div class="date">
+      <p class="date">
+        <!-- Date -->
+      </p>
+    </div>
+  </footer>
 
+  <script src="scripts/customize.js"></script>
   <script src="scripts/university.js"></script>
 </body>
 

@@ -3,126 +3,58 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home page</title>
-  <link rel="stylesheet" href="styles/style.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Welcome page</title>
+  <link href="styles/style.css" rel="stylesheet" />
   <script src="styles/icons/icons-style.js"></script>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="navbar-container">
-        <div class="logo">
-          <h1>Average Mark Calculation Website</h1>
-        </div>
-        <div class="menu">
-          <ul class="nav-list yellow">
-            <li class="active" title="home">
-              <a class="yellow" href="index.html">
-                <i class='fas fa-home'></i>Home
-              </a>
-            </li>
-            <li title="sign-in">
-              <a href="sign-in.html">
-                <i class='fas fa-user-check'></i>Sign-in
-              </a>
-            </li>
-            <li title="sign-up">
-              <a href="sign-up.html">
-                <i class='fas fa-user'></i>Sign-up
-              </a>
-            </li>
-            <li title="university mark calculation">
-              <a href="university.html">
-                <i class='fas fa-graduation-cap'></i>University
-              </a>
-            </li>
-            <li title="school mark calculation">
-              <a href="school.html">
-                <i class='fas fa-school'></i>School
-              </a>
-            </li>
-            <li title="more information about this page">
-              <a href="help.html" target="_blank">
-                <i class='far fa-question-circle'></i>Help
-              </a>
-            </li>
-            <li title="customization">
-              <div class="dropdown-menu">
-                <button class="dropdown-btn">
-                  <i class="material-icons dropdown">view_headline
-                  </i>
-                </button>
-                <div class="dropdown-container">
-                  <div class="select dark customize-menu">
-
-                    <input data-customize="theme" value="Theme" class="option dark customize" readonly />
-                    <div hidden class="theme-container">
-                      <input data-theme="dark" value="Dark" class="option dark theme" readonly />
-                      <span class="pos dark-color">
-                        <i class='far fa-check-circle dark-color colors'></i>
-                      </span>
-
-                      <input data-theme="light" value="Light" class="option dark theme" readonly />
-                      <span class="pos light-color">
-                        <i class='far fa-check-circle light-color colors'></i>
-                      </span>
-                    </div>
-
-                    <input data-customize="navbar-color" value="Menu Color" class="option dark customize" readonly />
-                    <div hidden class="menu-color-container">
-                      <input data-color="yellow" value="Yellow" class="option dark color" readonly />
-                      <span class="pos yellow-color">
-                        <i class='far fa-check-circle yellow-color colors'></i>
-                      </span>
-
-                      <input data-color="purple" value="Purple" class="option dark color" readonly />
-                      <span class="pos purple-color">
-                        <i class='far fa-check-circle purple-color colors'></i>
-                      </span>
-
-                      <input data-color="blue" value="Blue" class="option dark color" readonly />
-                      <span class="pos blue-color">
-                        <i class='far fa-check-circle blue-color colors'></i>
-                      </span>
-
-                      <input data-color="red" value="Red" class="option dark color" readonly />
-                      <span class="pos red-color">
-                        <i class='far fa-check-circle red-color colors'></i>
-                      </span>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-            </li>
-          </ul>
-        </div>
+  <div class="message">
+    <p class="message">
+      Scroll down
+    </p>
+    <i class='fas fa-arrow-down'></i>
+  </div>
+  <div id="app">
+    <div class="fixed-section firstpage">
+      <h1 class="heading">Welcome</h1>
+      <div class="background">
+        <div class="bg-block"></div>
       </div>
-    </nav>
-  </header>
-  <main>
-    <div class="main-container">
-      <div class="university">University Scores:</div>
-      <div class="school">School Scores:</div>
+      <div class="middleground">
+        <div class="mg-block"></div>
+      </div>
+      <div class="foreground">
+        <div class="fg-block"></div>
+      </div>
     </div>
-  </main>
-  <footer>
-    <div class="author">
-      <p class="author">
-        Author: sina vahabi
-      </p>
+
+    <div class="fixed-section secondpage">
+      <h1 class="heading">
+        <span class="average">Average</span>
+        <span>Mark</span>
+        <span>Calculation</span>
     </div>
-    <div class="date">
-      <p class="date">
-        <!-- Date -->
-      </p>
+
+    <div class="thirdpage">
+      <div class="progress-line">
+      </div>
+      <div class="title">
+        <h2>Fast and Easy</h2>
+      </div>
+      <div class="imgs">
+        <img class="img img1" src="styles/images/student.jpg" alt="student">
+        <img class="img img2" src="styles/images/calculation.png" alt="calculation">
+      </div>
+      <div class="bottom-sect"></div>
+      <div class="aside-home-link"></div>
+      <div class="main-page">
+        <a class="home" href="home.html">Les't Start!</a>
+      </div>
     </div>
-  </footer>
-  <script src="scripts/navbar.js"></script>
+  </div>
+
+  <script src="scripts/index.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <link rel="stylesheet" href="styles/home.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="styles/icons/icons-style.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="navbar-container">
+        <div class="logo">
+          <h1>Average Mark Calculation Website</h1>
+        </div>
+        <div class="register">
+          <ul class="nav-list yellow" id="register">
+            <li title="sign-in" class="sign-in">
+              <a href="sign-in.html">
+                <i class='fas fa-user-check'></i>Sign-in
+              </a>
+            </li>
+            <li title="sign-up" class="sign-up">
+              <a href="sign-up.html">
+                <i class='fas fa-user'></i>Sign-up
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu">
+          <ul class="nav-list yellow" id="menu">
+            <li class="active" title="home">
+              <a class="yellow" href="home.html">
+                <i class='fas fa-home'></i>Home
+              </a>
+            </li>
+            <li title="university mark calculation">
+              <a href="university.html">
+                <i class='fas fa-graduation-cap'></i>University
+              </a>
+            </li>
+            <li title="school mark calculation">
+              <a href="school.html">
+                <i class='fas fa-school'></i>School
+              </a>
+            </li>
+            <li title="more information about this page">
+              <a href="help.html" target="_blank">
+                <i class='far fa-question-circle'></i>Help
+              </a>
+            </li>
+            <li title="customization">
+              <div class="dropdown-menu">
+                <button class="dropdown-btn">
+                  <i class="material-icons dropdown">view_headline
+                  </i>
+                </button>
+                <div class="dropdown-container">
+                  <div class="select dark customize-menu">
+
+                    <input data-customize="theme" value="Theme" class="option dark customize" readonly />
+                    <div hidden class="theme-container">
+                      <input data-theme="dark" value="Dark" class="option dark theme" readonly />
+                      <span class="pos dark-color">
+                        <i class='fas fa-check-double dark-color colors'></i>
+                      </span>
+
+                      <input data-theme="light" value="Light" class="option dark theme" readonly />
+                      <span class="pos light-color">
+                        <i class='fas fa-check-double light-color colors'></i>
+                      </span>
+                    </div>
+
+                    <input data-customize="navbar-color" value="Menu Color" class="option dark customize" readonly />
+                    <div hidden class="menu-color-container">
+                      <input data-color="yellow" value="Yellow" class="option dark color" readonly />
+                      <span class="pos yellow-color">
+                        <i class='fas fa-check-double yellow-color colors'></i>
+                      </span>
+
+                      <input data-color="purple" value="Purple" class="option dark color" readonly />
+                      <span class="pos purple-color">
+                        <i class='fas fa-check-double purple-color colors'></i>
+                      </span>
+
+                      <input data-color="blue" value="Blue" class="option dark color" readonly />
+                      <span class="pos blue-color">
+                        <i class='fas fa-check-double blue-color colors'></i>
+                      </span>
+
+                      <input data-color="red" value="Red" class="option dark color" readonly />
+                      <span class="pos red-color">
+                        <i class='fas fa-check-double red-color colors'></i>
+                      </span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="main-container">
+      <div class="university">University Scores:</div>
+      <div class="school">School Scores:</div>
+    </div>
+  </main>
+  <footer>
+    <div class="author">
+      <p class="author">
+        Author: sina vahabi
+      </p>
+    </div>
+    <div class="date">
+      <p class="date">
+        <!-- Date -->
+      </p>
+    </div>
+  </footer>
+  <script src="scripts/customize.js"></script>
+  <script src="scripts/home.js"></script>
+</body>
+
+</html>

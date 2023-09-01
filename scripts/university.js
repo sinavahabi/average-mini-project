@@ -19,6 +19,9 @@ const resultContainer = document.querySelector("div.result");
 const resultTexts = document.querySelectorAll("div.result span.result");
 const resultSpan = document.querySelector("div.result span.final");
 const againButtonContainer = document.querySelector("div.again-container");
+const againButton = document.querySelector("div.again-container a");
+/* Light theme constant */
+const themeMenuOptions = document.querySelectorAll("input[data-theme]");
 
 /* Create error message for calculation process */
 // Div element
@@ -63,18 +66,27 @@ function buttonHandler(buttonElem, disabledVal, opacityVal, cursorVal) {
 
 // Disable calculate button when program starts
 buttonHandler(calculateButton, true, .6, "default");
+//Disable "Add New Lesson" button until it appears on UI 
+buttonHandler(addButton, true, 1, "default");
+// Disable "Calculate Another Average" button until calculation process is done and final result is shown on UI
+buttonHandler(againButton, true, 1, "default");
+// Disable the link as well
+againButton.href = "javascript:void(0)";
+resultContainer.style.cursor = "default";
 
 
 // Actions defined for "Let's Do It" button
 startButton.addEventListener("click", () => {
+  // Light theme style modifications
+  handleMainTheme();
   // Move the element to the top with CSS transition property, Then disappear slowly
   questionContainer.style.top = "0";
   questionContainer.style.opacity = 0;
 
   // Both containers will not be displayed until previous element vanishes (takes 4 seconds until previous element action is done) 
   setTimeout(() => {
-    tipsContainer.style.boxShadow = "0 0 10px rgba(16, 16, 16, .9)";
-    calculateContainer.style.boxShadow = "0 0 10px rgba(16, 16, 16, .9)";
+    tipsContainer.style.boxShadow = "0 0 10px rgba(16, 16, 16, .6)";
+    calculateContainer.style.boxShadow = "0 0 10px rgba(16, 16, 16, .6)";
     questionContainer.remove();
   }, 4000);
 
@@ -93,6 +105,8 @@ startButton.addEventListener("click", () => {
     tipsList.style.display = "block";
     topContainer.style.display = "block";
     bottomContainer.style.display = "block";
+    // Enable "Add New Lesson" button when calculation container appears on UI
+    buttonHandler(addButton, false, 1, "pointer");
   }, 6000);
 })
 
@@ -150,6 +164,9 @@ addButton.addEventListener("click", () => {
     `;
   createForm.innerHTML = formContent;
   mainFormsContent.append(createForm);
+
+  // Light theme style modifications
+  handleMainTheme();
 });
 
 
@@ -215,19 +232,19 @@ const saveForm = e => {
       const inputElem = element.childNodes[3];
 
       // Title input element 
-      if (inputElem.className === "title") {
+      if (inputElem.className === "title" || inputElem.className === "title main-light") {
         const titleInput = inputElem;
         textValidator(titleInput.value, titleInput);
       }
 
       // Mark input element
-      if (inputElem.className === "mark") {
+      if (inputElem.className === "mark" || inputElem.className === "mark main-light") {
         const markInput = inputElem;
         numberValidator(markInput.value, markInput, 20);
       }
 
       // Unit input element
-      if (inputElem.className === "unit") {
+      if (inputElem.className === "unit" || inputElem.className === "unit main-light") {
         const unitInput = inputElem;
         numberValidator(unitInput.value, unitInput, 5);
       }
@@ -246,8 +263,6 @@ const editForm = e => {
       const inputElem = element.childNodes[3];
       // Change relevant form input element styles and setting readonly attribute to false
       inputElem.readOnly = false;
-      inputElem.style.color = "#fff";
-      inputElem.style.borderColor = "#fff";
       inputElem.style.borderWidth = "2px";
       inputElem.style.padding = ".2em";
       // Also hide wether error icon or check icon if their displayed
@@ -384,6 +399,17 @@ function handleCalculation() {
 
 // Define output styles modifications function
 function showOutput() {
+  // Disable all input buttons
+  const clearButton = document.querySelectorAll("div.clear-btn button.clear");
+  const buttonsGroup = document.querySelectorAll("div.button-group button");
+
+  clearButton.forEach(button => {
+    button.disabled = true;
+  });
+
+  buttonsGroup.forEach(button => {
+    button.disabled = true;
+  });
   // UI changes after calculation process successfully begins
   calculateButton.style.margin = "6rem auto";
   calculateButton.style.transform = "rotate(720deg)";
@@ -420,7 +446,50 @@ function showOutput() {
     resultContainer.style.borderColor = "slateblue";
   }, 7000);
 
+  setTimeout(() => {
+    // Enable "Calculate Another Average" button and link reference
+    buttonHandler(againButton, false, 1, "pointer");
+    againButton.href = "university.html";
+    againButton.title = "wanna go again for another calculation average mark?";
+  }, 18000);
+
   resultContainer.style.top = "-450px";
   againButtonContainer.style.opacity = 1;
   againButtonContainer.style.top = "-350px";
+}
+
+
+// Light theme style modifications
+themeMenuOptions.forEach(themeOption => {
+  themeOption.addEventListener("click", e => {
+    if (e.target.dataset.theme === "light") {
+      // When chosen theme is "light"
+      handleMainTheme();
+    } else {
+      // When chosen theme is "dark"
+      handleMainTheme();
+    }
+  });
+});
+
+// Create function to handle university and school page theme changes
+function handleMainTheme() {
+  // Create a constant array of all form inputs
+  const darkInputs = document.querySelectorAll("div.calculate input");
+  // Access to body element by DOM searching to check wether theme is light or dark with body background color property
+  const bodyElemStyle = document.body.style.backgroundColor;
+
+  // When body style background color is light
+  if (bodyElemStyle && bodyElemStyle === "rgb(255, 255, 255)") {
+    calculateContainer.classList.add("main-light");
+    darkInputs.forEach(darkInput => {
+      darkInput.classList.add("main-light");
+    });
+    // When body style background color is dark
+  } else {
+    calculateContainer.classList.remove("main-light");
+    darkInputs.forEach(darkInput => {
+      darkInput.classList.remove("main-light");
+    });
+  }
 }

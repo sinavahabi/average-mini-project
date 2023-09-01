@@ -1,3 +1,5 @@
+/* Body and navbar styles */
+
 @import url("https://fonts.googleapis.com/css?family=Raleway:wght@100;200;300;400;500;600;700;800;900");
 
 * {
@@ -40,6 +42,9 @@ ul.nav-list {
 ul.nav-list li {
   padding: 1.1em .2em;
   display: inline-block;
+}
+
+ul.nav-list li:not(li.sign-up, li.sign-in) {
   border-left: 2px solid #333;
 }
 
@@ -47,10 +52,17 @@ ul.nav-list li:last-child {
   padding: .7em 0em .5em .4em;
 }
 
+ul#register li:last-of-type {
+  padding: 1.1em .2em;
+}
+
 ul.yellow li:hover {
   background-color: rgba(255, 217, 0, 0.686);
 }
 
+ul.nav-list li:nth-child(5):hover {
+  background-color: transparent;
+}
 
 li.active a,
 li.active a.yellow {
@@ -99,7 +111,6 @@ i.dropdown:hover {
 }
 
 /* The dropdown container styles */
-
 div.dropdown-container {
   opacity: 0;
   position: relative;
@@ -114,6 +125,7 @@ div.select {
   font-size: 1.2rem;
   border-radius: .2em;
   position: absolute;
+  z-index: 2;
   top: 20px;
   right: 5px
 }
@@ -259,4 +271,25 @@ ul.blue li:hover {
 
 ul.red li:hover {
   background-color: #ff9cc1d4;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: .7rem .5rem;
+  font-size: 1.2rem;
+  position: relative;
+  bottom: 0;
+}
+
+p.author {
+  color: #0070ff;
+}
+
+p.date {
+  color: #ff2e2e;
+  font-family: "Cascadia Code";
 }

@@ -1,0 +1,9 @@
+/* Home page styles */
+@import url("navbar.css");
+
+/* main content styling */
+.main-container {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 88vh;
+}

@@ -2,7 +2,7 @@
 
 // Access desired elements by DOM searching
 const navbarContainer = document.querySelector("div.navbar-container");
-const menuList = document.querySelector("ul.nav-list");
+const menuLists = document.querySelectorAll("ul.nav-list");
 const dropdownBtn = document.querySelector("button.dropdown-btn");
 const dropdownContainer = document.querySelector("div.dropdown-container");
 const handleIcon = document.querySelector("i.dropdown");
@@ -26,6 +26,13 @@ customizeOptions.forEach(option => {
   option.style.cursor = "default";
 });
 
+const handleOptions = (menuOption, disableVal, cursorVal) => {
+  menuOption.forEach(option => {
+    option.disabled = disableVal;
+    option.style.cursor = cursorVal;
+  });
+}; 
+
 
 dropdownBtn.addEventListener("click", () => {
   counter++;
@@ -34,20 +41,18 @@ dropdownBtn.addEventListener("click", () => {
     dropdownContainer.style.opacity = 0;
     dropdownBtn.style.transform = "rotate(0deg)";
 
-    // Enable dropdown input options when dropdown menu is opened
-    customizeOptions.forEach(option => {
-      option.disabled = true;
-      option.style.cursor = "default";
-    });
+    // Disable dropdown input options when dropdown menu is closed
+    handleOptions(customizeOptions, true, "default");
+    handleOptions(themeOptions, true, "default");
+    handleOptions(colorOptions, true, "default");
   } else {
     dropdownContainer.style.opacity = 1;
     dropdownBtn.style.transform = "rotate(90deg)";
 
-    // Disable dropdown input options when dropdown menu is closed
-    customizeOptions.forEach(option => {
-      option.disabled = false;
-      option.style.cursor = "pointer";
-    });
+    // Enable dropdown input options when dropdown menu is opened
+    handleOptions(customizeOptions, false, "pointer");
+    handleOptions(themeOptions, false, "pointer");
+    handleOptions(colorOptions, false, "pointer");
   }
 });
 
@@ -161,9 +166,11 @@ function handleMenuColor(removeClassVal1, removeClassVal2, removeClassVal3, addC
   // Change "a" element with active class styles, by class name elimination and addition  
   activeList.classList.remove(removeClassVal1, removeClassVal2, removeClassVal3);
   activeList.classList.add(addClassVal);
-  // Change "li" elements hover property styles, by class name elimination and addition  
-  menuList.classList.remove(removeClassVal1, removeClassVal2, removeClassVal3);
-  menuList.classList.add(addClassVal);
+  // Change "li" elements hover property styles, by class name elimination and addition 
+  menuLists.forEach(menuList => {
+    menuList.classList.remove(removeClassVal1, removeClassVal2, removeClassVal3);
+    menuList.classList.add(addClassVal);
+  }); 
 }
 
 // Footer date

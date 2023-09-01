@@ -1,8 +1,11 @@
+/* University and School page styles */
+
 /* main content styling */
 .row {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  min-height: 88vh;
 }
 
 aside {
@@ -442,4 +445,23 @@ aside ul.tips-list li.tip-bottom span.save-tip {
   top: 0;
   opacity: 0;
   transition: opacity 1s ease 17s, top 2s ease-in-out 18s;
+}
+
+/* Dropdown icon restyle */
+i.dropdown {
+  font-size: 2rem;
+  color: #333;
+  display: inline-block;
+  margin: 0 .2em;
+}
+
+/* Light theme styles */
+div.main-light {
+  box-shadow: 0 0 10px #fff;
+}
+
+input.main-light {
+  color: #333;
+  background-color: transparent;
+  border: 2px solid #333;
 }
