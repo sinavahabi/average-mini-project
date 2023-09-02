@@ -43,19 +43,3 @@ i.unit-valid-icon,
 i.unit-error-icon {
   left: 184px;
 }
-
-span.first {
-  color: tomato;
-}
-
-span.second {
-  color: #0064ff;
-}
-
-span.third {
-  color: #1ee61e;
-}
-
-span.final {
-  font-family: "Cascadia Code";
-}

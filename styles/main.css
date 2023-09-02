@@ -98,6 +98,7 @@ p.output-text {
 div.result {
   margin: 0 auto;
   position: relative;
+  z-index: -1;
   top: -100px;
   width: 0;
   height: 0;
@@ -117,18 +118,22 @@ span.result {
 
 span.first {
   transition: opacity 1s ease 9s;
+  color: tomato;
 }
 
 span.second {
   transition: opacity 1s ease 10s;
+  color: #0064ff;
 }
 
 span.third {
   transition: opacity 1s ease 11s;
+  color: #1ee61e;
 }
 
 span.final {
   transition: opacity 2s ease 12s;
+  font-family: "Cascadia Code";
 }
 
 /* Add lesson button */

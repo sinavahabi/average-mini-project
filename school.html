@@ -11,106 +11,208 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="navbar-container">
-        <div class="logo">
-          <h1>
-            <span class="school-header">School</span> Average Mark Calculation
-          </h1>
+  <div class="header">
+    <header>
+      <section class="navbar">
+        <nav>
+          <div class="navbar-container">
+            <div class="logo">
+              <h1>
+                <span class="school-header">School</span> Average Mark Calculation
+              </h1>
+            </div>
+            <div class="register">
+              <ul class="nav-list yellow" id="register">
+                <li title="sign-in" class="sign-in">
+                  <a href="sign-in.html">
+                    <i class='fas fa-user-check'></i>Sign-in
+                  </a>
+                </li>
+                <li title="sign-up" class="sign-up">
+                  <a href="sign-up.html">
+                    <i class='fas fa-user'></i>Sign-up
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="menu">
+              <ul class="nav-list yellow" id="menu">
+                <li title="home">
+                  <a href="home.html">
+                    <i class='fas fa-home'></i>Home
+                  </a>
+                </li>
+                <li title="university mark calculation">
+                  <a href="university.html">
+                    <i class='fas fa-graduation-cap'></i>University
+                  </a>
+                </li>
+                <li class="active" title="school mark calculation">
+                  <a class="yellow" href="school.html">
+                    <i class='fas fa-school'></i>School
+                  </a>
+                </li>
+                <li title="more information about this page">
+                  <a href="help.html" target="_blank">
+                    <i class='far fa-question-circle'></i>Help
+                  </a>
+                </li>
+                <li title="customization">
+                  <div class="dropdown-menu">
+                    <button class="dropdown-btn">
+                      <i class="material-icons dropdown">view_headline
+                      </i>
+                    </button>
+                    <div class="dropdown-container">
+                      <div class="select dark customize-menu">
+
+                        <input data-customize="theme" value="Theme" class="option dark customize" readonly />
+                        <div hidden class="theme-container">
+                          <input data-theme="dark" value="Dark" class="option dark theme" readonly />
+                          <span class="pos dark-color">
+                            <i class='fas fa-check-double dark-color colors'></i>
+                          </span>
+
+                          <input data-theme="light" value="Light" class="option dark theme" readonly />
+                          <span class="pos light-color">
+                            <i class='fas fa-check-double light-color colors'></i>
+                          </span>
+                        </div>
+
+                        <input data-customize="navbar-color" value="Menu Color" class="option dark customize"
+                          readonly />
+                        <div hidden class="menu-color-container">
+                          <input data-color="yellow" value="Yellow" class="option dark color" readonly />
+                          <span class="pos yellow-color">
+                            <i class='fas fa-check-double yellow-color colors'></i>
+                          </span>
+
+                          <input data-color="purple" value="Purple" class="option dark color" readonly />
+                          <span class="pos purple-color">
+                            <i class='fas fa-check-double purple-color colors'></i>
+                          </span>
+
+                          <input data-color="blue" value="Blue" class="option dark color" readonly />
+                          <span class="pos blue-color">
+                            <i class='fas fa-check-double blue-color colors'></i>
+                          </span>
+
+                          <input data-color="red" value="Red" class="option dark color" readonly />
+                          <span class="pos red-color">
+                            <i class='fas fa-check-double red-color colors'></i>
+                          </span>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+      <section class="question">
+        <div class="question-container">
+          <div class="question">
+            <h2 class="start">Ready to calculate your school average mark?</h2>
+            <button class="start" title="calculate average mark">Let's Do It!</button>
+          </div>
         </div>
-        <div class="menu">
-          <ul class="nav-list">
-            <li title="home">
-              <a href="index.html">
-                <i class='fas fa-home'></i>Home
-              </a>
+      </section>
+    </header>
+  </div>
+
+  <div class="row">
+    <main>
+      <div class="main-container">
+        <section class="calculate">
+          <div class="calculate">
+            <div class="top">
+              <button class="add" title="add a lesson">Add New Lesson</button>
+            </div>
+            <div class="forms">
+              <!-- New Forms -->
+            </div>
+            <div class="bottom">
+              <button class="calculate-average" title="ready to calculate?">Calculate Average Mark</button>
+              <div class="output">
+                <progress hidden class="calculate" max="1" value="0"></progress>
+                <p hidden class="output-text">calculating...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="result">
+          <div class="result">
+            <p class="result">
+              <span class="result first">Your</span>
+              <span class="result second">Average</span>
+              <span class="result third">Mark:</span>
+              <span class="result final"></span>
+            </p>
+          </div>
+        </section>
+        <section class="again">
+          <div class="again-container">
+            <a href="university.html" class="again">Calculate Another Average</a>
+          </div>
+        </section>
+      </div>
+    </main>
+    <aside>
+      <div class="sidebar">
+        <div class="tips">
+          <ul class="tips-list">
+            <li class="tip-top">
+              <h3>Tips!</h3>
             </li>
-            <li title="sign-in">
-              <a href="sign-in.html">
-                <i class='fas fa-user-check'></i>Sign-in
-              </a>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Don't leave any fields empty to calculate your average score!
             </li>
-            <li title="sign-up">
-              <a href="sign-up.html">
-                <i class='fas fa-user'></i>Sign-up
-              </a>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Lesson title value cannot be less than 3 characters!
             </li>
-            <li title="university mark calculation">
-              <a href="university.html">
-                <i class='fas fa-graduation-cap'></i>University
-              </a>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Lesson mark value should be a numeric value between 1-20!
             </li>
-            <li class="active" title="school mark calculation">
-              <a href="school.html">
-                <i class='fas fa-school'></i>School
-              </a>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Lesson unit value should be a numeric value between 1-5!
             </li>
-            <li title="more information about this page">
-              <a href="help.html" target="_blank">
-                <i class='far fa-question-circle'></i>Help
-              </a>
+            <li>
+              <i class='fas fa-exclamation-triangle'></i>
+              Instead of zero number value for mark input use "1"!
+            </li>
+            <li class="tip-bottom">
+              <h4>Don't forget to <span class="save-tip">save</span> changes for each form!</h4>
             </li>
           </ul>
         </div>
       </div>
-    </nav>
-  </header>
-  <main>
-    <div class="main-container">
+    </aside>
+  </div>
 
-      <section class="question">
-        <div class="question">
-          <h2 class="start">Ready to calculate your school average mark?</h2>
-          <button class="start" title="calculate average mark">Let's Do It!</button>
-        </div>
-      </section>
-
-      <section class="calculate">
-        <div class="calculate">
-          <button class="add">Add New Lesson</button>
-          <form>
-            <div class="form-container">
-              <div class="input-group">
-
-                <div class="title">
-                  <label for="title">lesson title:</label>
-                  <input id="title" class="title" type="text" minlength="3" maxlength="50">
-                  <div class="icon-container">
-                    <i class="fas fa-exclamation-circle"></i>
-                  </div>
-                </div>
-
-                <div class="mark">
-                  <label for="mark">lesson mark:</label>
-                  <input id="mark" class="mark" type="number">
-                  <div class="icon-container">
-                    <i class='fas fa-check-circle'></i>
-                  </div>
-                </div>
-
-              </div>
-              <div class="button-group">
-                <button type="button" class="save">save</button>
-                <button type="button" class="edit">edit</button>
-                <button type="button" class="delete">delete</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <section class="output">
-        <div class="output">
-          output here
-        </div>
-      </section>
-    </div>
-  </main>
-  <footer></footer>
+  <div class="footer">
+    <footer>
+      <div class="author">
+        <p class="author">
+          Author: sina vahabi
+        </p>
+      </div>
+      <div class="date">
+        <p class="date">
+          <!-- Date -->
+        </p>
+      </div>
+    </footer>
+  </div>
 
   <script src="scripts/customize.js"></script>
-  <script src="scripts/university.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>

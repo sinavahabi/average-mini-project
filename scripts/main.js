@@ -20,6 +20,12 @@ const resultTexts = document.querySelectorAll("div.result span.result");
 const resultSpan = document.querySelector("div.result span.final");
 const againButtonContainer = document.querySelector("div.again-container");
 const againButton = document.querySelector("div.again-container a");
+
+// Access to current page URL
+const currentURL = window.location.href;
+const pathChars = currentURL.split("/");
+const fileName = pathChars[pathChars.length - 1];
+
 /* Light theme constant */
 const themeMenuOptions = document.querySelectorAll("input[data-theme]");
 
@@ -50,12 +56,15 @@ let calculationIsDone = false;
 // Initialize an empty array check inputs with readonly attribute
 let checkInputs = [];
 
-// Initialize array and number variables for calculation process
+// Initialize array and number variables for university calculation process
 let marksValue = [];
 let unitsValue = [];
 let multipliedArray = [];
 let sumUnit = 0;
 let sumResult = 0;
+
+// Initialize number variable for school calculation process
+let schoolMarkSum = 0;
 
 // Define a function  to disable or enable a specific button element on different circumstances
 function buttonHandler(buttonElem, disabledVal, opacityVal, cursorVal) {
@@ -120,55 +129,74 @@ addButton.addEventListener("click", () => {
     buttonHandler(calculateButton, false, 1, "pointer");
   }
 
-  // Create form element
-  const createForm = document.createElement("form");
-  createForm.id = `form-${num}`
-  // Create form "innerHTML" value
-  const formContent = `
-    <div class="form-container">
-      <div class="clear-btn">
-        <button type="reset" class="clear" title="clear form values">Clear</button>
-      </div>
-      <div class="input-group">
-        <div className="title">
-          <label for="title-${num}">Lesson Title:</label>
-          <input id="title-${num}" class="title" type="text" maxLength="50" title="enter lesson title" placeholder="Engineering Mathematics">
-          <div class="icon-container">
-            <i class="fas fa-exclamation-circle title-error-icon"></i>
-            <i class="fas fa-check-circle title-valid-icon"></i>
-          </div>
-        </div>
-        <div className="mark">
-          <label for="mark-${num}">Lesson Mark:</label>
-          <input id="mark-${num}" class="mark" type="number" title="enter lesson mark number" placeholder="17.5">
-          <div class="icon-container">
-            <i class="fas fa-exclamation-circle mark-error-icon"></i>
-            <i class="fas fa-check-circle mark-valid-icon"></i>
-          </div>
-        </div>
-        <div className="unit">
-          <label for="unit-${num}">Unit Count:</label>
-          <input id="unit-${num}" class="unit" type="number" title="enter lesson unit count" placeholder="3">
-          <div class="icon-container">
-            <i class="fas fa-exclamation-circle unit-error-icon"></i>
-            <i class="fas fa-check-circle unit-valid-icon"></i>
-          </div>
+  if (fileName === "university.html") {
+    handleFormContent(
+      "title-error-icon",
+      "title-valid-icon",
+      "mark-error-icon",
+      "mark-valid-icon",
+      `
+      <div className="unit">
+        <label for="unit-${num}">Unit Count:</label>
+        <input id="unit-${num}" class="unit" type="number" title="enter lesson unit count" placeholder="3">
+        <div class="icon-container">
+          <i class="fas fa-exclamation-circle unit-error-icon"></i>
+          <i class="fas fa-check-circle unit-valid-icon"></i>
         </div>
       </div>
-      <div class="button-group">
-        <button type="button" class="save" onclick="saveForm(event)">Save</button>
-        <button type="button" class="edit" onclick="editForm(event)">Edit</button>
-        <button type="button" class="delete" title="delete lesson" onclick="delForm(this)">Delete</button>
-      </div>
-    </div>
-    `;
-  createForm.innerHTML = formContent;
-  mainFormsContent.append(createForm);
+      `
+    );
+  } else {
+    handleFormContent("school-title-error", "school-title-valid", "school-mark-error", "school-mark-valid");
+  }
 
   // Light theme style modifications
   handleMainTheme();
 });
 
+
+// Create and add input forms accordingly to current page URL
+function handleFormContent(titleErrorIcon, titleValidIcon, markErrorIcon, markValidIcon, inputContent = "") {
+  // Create form element
+  const createForm = document.createElement("form");
+  createForm.id = `form-${num}`;
+
+  // Create form "innerHTML" value
+  const formContent = `
+      <div class="form-container">
+        <div class="clear-btn">
+          <button type="reset" class="clear" title="clear form values">Clear</button>
+        </div>
+        <div class="input-group">
+          <div className="title">
+            <label for="title-${num}">Lesson Title:</label>
+            <input id="title-${num}" class="title" type="text" maxLength="50" title="enter lesson title" placeholder="Engineering Mathematics">
+            <div class="icon-container">
+              <i class="fas fa-exclamation-circle ${titleErrorIcon}"></i>
+              <i class="fas fa-check-circle ${titleValidIcon}"></i>
+            </div>
+          </div>
+          <div className="mark">
+            <label for="mark-${num}">Lesson Mark:</label>
+            <input id="mark-${num}" class="mark" type="number" title="enter lesson mark number" placeholder="17.5">
+            <div class="icon-container">
+              <i class="fas fa-exclamation-circle ${markErrorIcon}"></i>
+              <i class="fas fa-check-circle ${markValidIcon}"></i>
+            </div>
+          </div>
+          ${inputContent}
+        </div>
+        <div class="button-group">
+          <button type="button" class="save" onclick="saveForm(event)">Save</button>
+          <button type="button" class="edit" onclick="editForm(event)">Edit</button>
+          <button type="button" class="delete" title="delete lesson" onclick="delForm(this)">Delete</button>
+        </div>
+      </div>
+    `;
+
+  createForm.innerHTML = formContent;
+  mainFormsContent.append(createForm);
+}
 
 // Define this function to handle hiding/showing error messages dynamically for each specific input
 function errorMessage(element, Color, borderWidth, iconFlag) {
@@ -363,37 +391,54 @@ function handleCalculation() {
     unitsValue.push(Number(input.value));
   });
 
-  // Multiplying each mark number to each relevant unit count
-  for (let i = 0; i < marksValue.length; i++) {
-    multipliedArray.push(marksValue[i] * unitsValue[i]);
+  // When page URL is "university.html" file name
+  if (fileName === "university.html") {
+    // Multiplying each mark number to each relevant unit count
+    for (let i = 0; i < marksValue.length; i++) {
+      multipliedArray.push(marksValue[i] * unitsValue[i]);
+    }
+
+    // Sum above result values "multipliedArray" together
+    multipliedArray.forEach(result => {
+      sumResult += result;
+    });
+
+    // Sum unit count values together
+    unitsValue.forEach(unit => {
+      sumUnit += unit;
+    });
+
+    // Divide --> |sum (mark number * unit count) / sum (unit count)|
+    let finalOutput = sumResult / sumUnit;
+    handleOutputResult(finalOutput, 12);
+
+  } else {
+    // When page URL is "school.html" file name
+    marksValue.forEach(schoolMark => {
+      schoolMarkSum += schoolMark;
+    });
+
+    let schoolFinalOutput = schoolMarkSum / Number(marksInput.length);
+    handleOutputResult(schoolFinalOutput, 10);
   }
 
-  // Sum above result values "multipliedArray" together
-  multipliedArray.forEach(result => {
-    sumResult += result;
-  });
+}
 
-  // Sum unit count values together
-  unitsValue.forEach(unit => {
-    sumUnit += unit;
-  });
-
-  // Divide --> |sum (mark number * unit count) / sum (unit count)|
-  let finalOutput = sumResult / sumUnit;
-
+// Create following function to implement same styles for both university and school final outputs
+function handleOutputResult(finalOutputVal, checkNum) {
   // Change output display colors on UI accordingly 
-  if (finalOutput >= 17) {
+  if (finalOutputVal >= 17) {
     resultSpan.style.color = "#1ee61e";
   }
-  else if (finalOutput < 17 && finalOutput >= 12) {
+  else if (finalOutputVal < 17 && finalOutputVal >= checkNum) {
     resultSpan.style.color = "#0064ff";
   } else {
     resultSpan.style.color = "tomato";
   }
 
   // Make output number length limited to 5 characters
-  finalOutput = String(finalOutput).slice(0, 5);
-  resultSpan.innerHTML = `${finalOutput}`;
+  finalOutputVal = String(finalOutputVal).slice(0, 5);
+  resultSpan.innerHTML = `${finalOutputVal}`;
   return resultSpan;
 }
 
@@ -449,7 +494,13 @@ function showOutput() {
   setTimeout(() => {
     // Enable "Calculate Another Average" button and link reference
     buttonHandler(againButton, false, 1, "pointer");
-    againButton.href = "university.html";
+
+    if (fileName === "university.html") {
+      againButton.href = "university.html";
+    } else {
+      againButton.href = "school.html";
+    }
+
     againButton.title = "wanna go again for another calculation average mark?";
   }, 18000);
 

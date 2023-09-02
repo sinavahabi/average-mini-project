@@ -2,6 +2,10 @@
 @import url("main.css");
 
 /* School page specific styles */
+h1 {
+  font-size: 1.4rem;
+}
+
 h1 span.school-header {
   text-decoration: underline;
 }
@@ -22,4 +26,15 @@ button.start:active {
   border: 2px solid slateblue;
   color: slateblue;
   background-color: transparent;
+}
+
+/* Valid and error icons coordinates */
+i.school-title-error,
+i.school-title-valid {
+  left: 340px;
+}
+
+i.school-mark-error,
+i.school-mark-valid {
+  left: 234px;
 }
