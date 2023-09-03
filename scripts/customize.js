@@ -15,7 +15,7 @@ const colorOptions = document.querySelectorAll("input[data-color]");
 const lightThemeElements = document.querySelectorAll(".dark");
 const activeList = document.querySelector("li.active a");
 
-// Use a counter to notice wether a dropdown menu should hide or show each time the dropdown button is clicked
+// Use a counter to notice whether a dropdown menu should hide or show each time the dropdown button is clicked
 let counter = 0;
 let themeOptionCounter = 0;
 let menuColorOptionCounter = 0;
@@ -68,7 +68,7 @@ customizeOptions.forEach(option => {
       // Plus theme option counter by one 
       themeOptionCounter++;
 
-      // Check wether to open or hide theme option menu each time it's being clicked
+      // Check whether to open or hide theme option menu each time it's being clicked
       if (themeOptionCounter % 2 === 0) {
         themeContainer.hidden = true;
       } else {
@@ -83,7 +83,7 @@ customizeOptions.forEach(option => {
       // Plus color menu counter by one 
       menuColorOptionCounter++;
 
-      // Check wether to open or hide color menu option each time it's being clicked additionally change some styles
+      // Check whether to open or hide color menu option each time it's being clicked additionally change some styles
       if (menuColorOptionCounter % 2 === 0) {
         menuColorContainer.hidden = true;
         e.target.style.borderBottom = "none";

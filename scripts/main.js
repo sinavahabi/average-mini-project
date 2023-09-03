@@ -135,6 +135,7 @@ addButton.addEventListener("click", () => {
       "title-valid-icon",
       "mark-error-icon",
       "mark-valid-icon",
+      "Engineering-Mathematics",
       `
       <div className="unit">
         <label for="unit-${num}">Unit Count:</label>
@@ -147,7 +148,7 @@ addButton.addEventListener("click", () => {
       `
     );
   } else {
-    handleFormContent("school-title-error", "school-title-valid", "school-mark-error", "school-mark-valid");
+    handleFormContent("school-title-error", "school-title-valid", "school-mark-error", "school-mark-valid", "Math");
   }
 
   // Light theme style modifications
@@ -156,7 +157,7 @@ addButton.addEventListener("click", () => {
 
 
 // Create and add input forms accordingly to current page URL
-function handleFormContent(titleErrorIcon, titleValidIcon, markErrorIcon, markValidIcon, inputContent = "") {
+function handleFormContent(titleErrorIcon, titleValidIcon, markErrorIcon, markValidIcon, placeholderVal, inputContent = "") {
   // Create form element
   const createForm = document.createElement("form");
   createForm.id = `form-${num}`;
@@ -170,7 +171,7 @@ function handleFormContent(titleErrorIcon, titleValidIcon, markErrorIcon, markVa
         <div class="input-group">
           <div className="title">
             <label for="title-${num}">Lesson Title:</label>
-            <input id="title-${num}" class="title" type="text" maxLength="50" title="enter lesson title" placeholder="Engineering Mathematics">
+            <input id="title-${num}" class="title" type="text" maxLength="50" title="enter lesson title" placeholder=${placeholderVal}>
             <div class="icon-container">
               <i class="fas fa-exclamation-circle ${titleErrorIcon}"></i>
               <i class="fas fa-check-circle ${titleValidIcon}"></i>
@@ -293,7 +294,7 @@ const editForm = e => {
       inputElem.readOnly = false;
       inputElem.style.borderWidth = "2px";
       inputElem.style.padding = ".2em";
-      // Also hide wether error icon or check icon if their displayed
+      // Also hide whether error icon or check icon if their displayed
       inputElem.nextSibling.nextSibling.childNodes[1].style.display = "none";
       inputElem.nextSibling.nextSibling.childNodes[3].style.display = "none";
     }
@@ -527,7 +528,7 @@ themeMenuOptions.forEach(themeOption => {
 function handleMainTheme() {
   // Create a constant array of all form inputs
   const darkInputs = document.querySelectorAll("div.calculate input");
-  // Access to body element by DOM searching to check wether theme is light or dark with body background color property
+  // Access to body element by DOM searching to check whether theme is light or dark with body background color property
   const bodyElemStyle = document.body.style.backgroundColor;
 
   // When body style background color is light

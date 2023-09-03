@@ -156,7 +156,6 @@ a.again {
   background-color: #0070ff;
   color: white;
   border: 2px solid transparent;
-
 }
 
 button.add:hover,
@@ -397,6 +396,7 @@ span.save-text {
   color: #c7ff00;
 }
 
+/* Sidebar tips list styles */
 aside div.tips {
   opacity: 1;
   width: 0;

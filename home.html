@@ -106,13 +106,85 @@
         </div>
       </div>
     </nav>
+    <div class="err-container" hidden>
+      <div class="fetch-error">
+        <p class="err-text">We're having some difficulties right now!</p>
+        <button class="close-err">
+          <i class="material-icons close">close</i>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <div class="main-container">
-      <div class="university">University Scores:</div>
-      <div class="school">School Scores:</div>
-    </div>
+  <main id="main">
+    <section class="outputs">
+      <div class="container">
+        <div class="sidebar-menu">
+          <div class="btn-container">
+            <button class="sidebar-btn">
+              none
+            </button>
+          </div>
+          <ul class="sidebar-list">
+            <li class="sidebar-title">Tips</li>
+            <li>Use "Show Activity" button to see recent average mark calculation records</li>
+            <li>Click on each item title to edit and save any desired title you want for each record</li>
+            <li>If you need more help please contact us by sending a message for support <span class="here">
+              <a href="#">here</a>
+            </span>
+            </li>
+            <li>Note: You need to login to use website features!</li>
+          </ul>
+        </div>
+        <div class="main-container">
+
+          <div class="result-container university-container">
+            <article class="university-results">
+              <header class="university-header">
+                <h2 class="h2-title university-title">
+                  University Scores:
+                </h2>
+              </header>
+              <main class="main university">
+                <ul class="scores-list university-scores">
+                  <li class="list-title">Recent Calculated Scores:</li>
+                  <!-- New calculated data -->
+                </ul>
+                <button class="university activity" title="check recent university activity">Show Activity</button>
+              </main>
+              <footer class="result-footer university-footer">
+                Last calculation time:
+              </footer>
+            </article>
+          </div>
+
+          <div class="result-container school-container">
+            <article class="school-results">
+              <header class="school-header">
+                <h2 class="h2-title school-title">
+                  School Scores:
+                </h2>
+              </header>
+              <main class="main school">
+                <ul class="scores-list school-scores">
+                  <li class="list-title">Recent Calculated Scores:</li>
+                  <!-- New calculated data -->
+                </ul>
+                <button class="school activity" title="check recent school activity">Show Activity</button>
+              </main>
+              <footer class="result-footer school-footer">
+                Last calculation time:
+              </footer>
+            </article>
+          </div>
+
+        </div>
+
+        <div class="wait-message">
+          <p class="wait-text">Wait for the other activity to complete!</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div class="footer">
