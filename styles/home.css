@@ -11,18 +11,19 @@ main#main {
 
 /* Sidebar menu styles */
 div.sidebar-menu {
-  width: 15%;
-  min-width: 285px;
+  width: 13%;
+  min-width: 247px;
   font-size: 1.2em;
   background-color: #000420;
-  height: 100%;
-  min-height: 700px;
   padding-top: 10%;
   border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  top: 54px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  transition: transform 1s ease;
 }
 
 ul.sidebar-list {
@@ -68,8 +69,28 @@ span.here a {
 /* Sidebar menu aside button styles */
 div.btn-container {
   position: absolute;
-  top: 245px;
-  left: 285px;
+  top: 250px;
+  left: 238px;
+  z-index: -1;
+}
+
+button.sidebar-btn {
+  background-color: #000420;
+  padding: .8rem;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  border-left: 2px solid transparent;
+}
+
+button.sidebar-btn:hover {
+  cursor: pointer;
+  background-color: #464646;
+}
+
+i.fa-angle-double-right,
+i.fa-angle-double-left {
+  color: #fff;
+  font-size: 1rem;
 }
 
 /* main content styling */
@@ -122,6 +143,10 @@ ul.scores-list {
 ul.scores-list li {
   margin: .3em;
   font-size: 1.3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 ul.scores-list li:not(.list-title)::before {
@@ -144,9 +169,84 @@ li.list-title {
   font: italic bold 1.5rem Raleway !important;
 }
 
-h4.score-title,
+ul.scores-list div.flex {
+  display: flex;
+  font-size: 1.1rem;
+  font-style: normal;
+}
+
+ul.scores-list div.title {
+  flex-grow: 14;
+}
+
+ul.scores-list div.mark {
+  flex-grow: 1;
+}
+
+ul.scores-list div.count {
+  flex-grow: 1;
+}
+
+ul.scores-list div.flex p {
+  margin: auto;
+} 
+
+input.items-title {
+  background-color: transparent;
+  color: #858585;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: .4rem .2rem;
+  font-size: 1.3rem;
+  outline: none;
+  width: 90%;
+}
+
+input.items-title:hover {
+  cursor: pointer;
+  background-color: rgb(117, 191, 255);
+  border-bottom: 2px solid transparent;
+  border-radius: .2em;
+}
+
+input.items-title:focus {
+  cursor: text;
+  border-bottom: 2px solid #2bafff;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+h4.score-title {
+  width: 45%;
+}
+
+p.score-number,
+span.counter {
+  text-align: center;
+  border-radius: .2em;
+  color: #333;
+  padding: .4rem .2rem;
+}
+
 p.score-number {
-  display: inline-block;
+  width: 20%;
+  background-color: rgb(117, 191, 255);
+}
+
+span.counter {
+  width: 10%;
+}
+
+main.university span.counter {
+  background-color: rgb(0, 255, 106);
+}
+
+main.school span.counter {
+  background-color: cornflowerblue;
+}
+
+span.counter i {
+  font-size: .9rem;
 }
 
 /* Loading and error messages styles */
@@ -234,25 +334,73 @@ button.activity:active {
   background-color: transparent;
 }
 
-div.wait-message {
-  background-color: #2298ff;
+/* API response messages styles */
+div.msg {
   padding: .7rem .5rem;
   border-radius: 1rem;
-  width: 22%;
-  float: right;
-  margin-top: 2rem;
   font-size: 1.2rem;
+}
+
+div.wait-message {
+  width: 22%;
+  background-color: #2298ff;
+  margin-top: .5rem;
+  float: right;
   text-align: left;
   transform: translateX(100%);
   transition: transform 1s ease-in-out;
 }
 
-p.wait-text::before {
-  content: "\f06a";
+p.wait-text::before,
+p.school-update-err::before,
+p.university-update-err::before,
+p.school-update::after,
+p.university-update::after {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
-  margin-right: .4em;
   color: #fff;
+}
+
+p.wait-text::before,
+p.school-update-err::before,
+p.university-update-err::before {
+  content: "\f06a";
+  margin-right: .4em;
+}
+
+div.school-update,
+div.university-update {
+  width: 24%;
+  background-color: #1fc168;
+  margin-top: .1rem;
+  position: relative;
+  z-index: 2;
+  float: left;
+  text-align: right;
+  transform: translateX(-100%);
+  transition: transform 1s ease-in-out;
+}
+
+div.university-update {
+  clear: left;
+}
+
+div.school-update-err,
+div.university-update-err {
+  width: 26%;
+  background-color: #fca400;
+  margin-top: .1rem;
+  float: right;
+  text-align: left;
+  clear: right;
+  transform: translateX(100%);
+  transition: transform 1s ease-in-out;
+}
+
+p.school-update::after,
+p.university-update::after {
+  content: "\f164";
+  margin-left: .4em;
 }
 
 /* Each result footer style */
@@ -261,4 +409,51 @@ footer.result-footer {
   padding: .6rem;
   font-style: italic;
   font-size: 1.2rem;
+}
+
+/* List theme styles */
+div.sidebar-menu.light {
+  background-color: #ddd;
+  color: #333;
+  border-right: 1px solid #333;
+}
+
+ul.sidebar-list li.light {
+  border-bottom: 1px solid #333;
+}
+
+
+button.sidebar-btn.light {
+  background-color: #ddd;
+  border: 2px solid #333;
+  border-left: 2px solid transparent;
+}
+
+button.sidebar-btn.light:hover {
+  background-color: #fff;
+}
+
+i.fa-angle-double-right.light,
+i.fa-angle-double-left.light {
+  color: #333;
+}
+
+.result-container.light {
+  border: 3px solid #333;
+}
+
+h2.h2-title.light {
+  border-bottom: thick solid #333;
+}
+
+footer.result-footer.light {
+  border-top: 2px dashed #333;
+}
+
+p.wait-text.light::before,
+p.school-update-err.light::before,
+p.university-update-err.light::before,
+p.school-update.light::after,
+p.university-update.light::after {
+  color: #333;
 }

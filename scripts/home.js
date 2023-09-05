@@ -2,8 +2,15 @@
 
 // Get elements by DOM searching
 const sidebar = document.querySelector("div.sidebar-menu");
+const sidebarList = document.querySelectorAll("div.sidebar-menu ul.sidebar-list li");
+const sidebarBtn = document.querySelector("button.sidebar-btn");
+const menuIcon = document.querySelector("i.fa-angle-double-right");
+const resultContainers = document.querySelectorAll("div.result-container");
+const h2Titles = document.querySelectorAll("h2.h2-title");
+const resultFooters = document.querySelectorAll("footer.result-footer");
 const universityBtn = document.querySelector("button.university");
 const schoolBtn = document.querySelector("button.school");
+const messagesIcon = document.querySelectorAll("div.msg p");
 const universityMainElem = document.querySelector("main.university");
 const schoolMainElem = document.querySelector("main.school");
 const universityList = document.querySelector("ul.university-scores");
@@ -11,12 +18,28 @@ const schoolList = document.querySelector("ul.school-scores");
 const errorContainer = document.querySelector("div.err-container");
 const closeError = document.querySelector("button.close-err");
 const waitMessage = document.querySelector("div.wait-message");
+const universityUpdate = document.querySelector("div.university-update");
+const schoolUpdate = document.querySelector("div.school-update");
+const universityUpdateErr = document.querySelector("div.university-update-err");
+const schoolUpdateErr = document.querySelector("div.school-update-err");
 
-// Initialize an empty variable
+/* Light theme constant */
+const themeMenuOps = document.querySelectorAll("input[data-theme]");
+
+// Variable for sidebar menu move counts
+let menuMoves = 0;
+
+// Initialize an empty variable to handle loading messages
 let loadingMessage;
+
 // Create boolean variables to check whether another task (API request) is done 
 let isSchoolDone = true;
 let isUniversityDone = true;
+
+// Initialize empty variables for inputs 
+let schoolInputs;
+let universityInputs;
+let id = 0;
 
 // Define a function to handle API response messages
 function handleMessage(className, innerContent, innerText, elemPos) {
@@ -59,7 +82,7 @@ const handleRequest = (path, mainElem, listElem, isUniversity) => {
           isSchoolDone = true;
         }
       } else {
-        // Program will stop using catch statement by throwing an error 
+        // Program will stop because of catch statement usage by throwing an error 
         throw new Error("an error occurred!");
       }
 
@@ -72,13 +95,31 @@ const handleRequest = (path, mainElem, listElem, isUniversity) => {
           const newListItem = document.createElement("li");
           newListItem.classList = `list-score-${index + 1}`;
           newListItem.innerHTML = `
-          <h4 class="score-title">${item.title} ${index + 1}: </h4>
+          <h4 class="score-title">
+            <input class="items-title input-${item.id}" type="text" value="${item.title}"/>
+          </h4>
           <p class="score-number">${item.score}</p>
+          <span class="counter">
+            <i class='fas fa-circle'></i>${index + 1}
+          </span>
         `;
 
           listElem.append(newListItem);
         });
-      }, 500)
+      }, 500);
+
+      // Using input elements to modify each average mark calculation record by user choice
+      setTimeout(() => {
+        if (isUniversity) {
+          // Use university result container when input title edition is happening on that container
+          universityInputs = document.querySelectorAll("main.university h4.score-title input");
+          handleUpdates(universityInputs, "university-scores", universityUpdate, universityUpdateErr);
+        } else {
+          // Use university result container when input title edition is happening on that container
+          schoolInputs = document.querySelectorAll("main.school h4.score-title input");
+          handleUpdates(schoolInputs, "school-scores", schoolUpdate, schoolUpdateErr);
+        }
+      }, 1000);
 
     } catch (error) {
       // Remove loading message and show fetch error message when response is unsuccessful
@@ -125,6 +166,10 @@ universityBtn.addEventListener("click", e => {
   } else {
     // While school task is not done, waiting message will be shown on UI
     waitMessage.style.transform = "translateX(8%)";
+
+    setTimeout(() => {
+      waitMessage.style.transform = "translateX(100%)";
+    }, 10000);
   }
 });
 
@@ -157,6 +202,10 @@ schoolBtn.addEventListener("click", e => {
   } else {
     // While university task is not done, waiting message will be shown on UI
     waitMessage.style.transform = "translateX(8%)";
+
+    setTimeout(() => {
+      waitMessage.style.transform = "translateX(100%)";
+    }, 10000);
   }
 });
 
@@ -167,3 +216,122 @@ closeError.addEventListener("click", e => {
   errContainer.style.bottom = "20px";
 });
 
+
+// Actions defined for sidebar button 
+sidebarBtn.addEventListener("click", () => {
+  menuMoves++;
+
+  // Go back outside UI
+  if (menuMoves % 2 === 0) {
+    sidebar.style.transform = "translateX(-100%)";
+    menuIcon.classList.remove("fa-angle-double-left");
+    menuIcon.classList.add("fa-angle-double-right");
+  } else {
+    sidebar.style.transform = "translateX(0%)";
+    menuIcon.classList.remove("fa-angle-double-right");
+    menuIcon.classList.add("fa-angle-double-left");
+  }
+});
+
+// Create function to handle "PUT" method on different result container input elements
+function handleUpdates(inputsList, path, updateMessage, updateMessageErr) {
+  // Actions defined on input titles
+  inputsList && inputsList.forEach(input => {
+    // Basically when focus from input element is out, title edition will occur and save using API
+    input.addEventListener("focusout", e => {
+      // Capturing each object "ID" by adding it to each input class name first and capturing it here again second
+      const stringVal = e.target.classList[1];
+      const stringLength = stringVal.length;
+
+      switch (stringLength) {
+        case 7:
+          id = stringVal.slice(stringLength - 1, stringLength);
+          break;
+        case 8:
+          id = stringVal.slice(stringLength - 2, stringLength);
+          break;
+        case 9:
+          id = stringVal.slice(stringLength - 3, stringLength);
+          break;
+        default:
+          id = stringVal.slice(stringLength - 4, stringLength);
+          break;
+      }
+      // Above statement helps to identify each object precisely to perform edition by user and saving it correctly
+
+      async function updateTitle() {
+        try {
+          // Requesting API from server with 'POST' method
+          const response = await fetch(`https://64f35596edfa0459f6c6808d.mockapi.io/${path}/${id}`, {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ title: e.target.value })
+          });
+
+          // Success title update message will be shown for a short period of time when "PUT" method worked correctly
+          if (response.ok) {
+            updateMessage.style.transform = "translate(-10%)";
+
+            setTimeout(() => {
+              updateMessage.style.transform = "translate(-100%)";
+            }, 2000);
+          } else {
+            // Program will stop because of catch statement usage by throwing an error 
+            throw new Error("an error occurred!");
+          }
+        } catch (error) {
+          // Unsuccess title update error message will be shown for a short period of time when "PUT" method didn't work correctly
+          updateMessageErr.style.transform = "translate(10%)";
+
+          setTimeout(() => {
+            updateMessageErr.style.transform = "translate(100%)";
+          }, 2000);
+        }
+      }
+
+      updateTitle();
+    });
+  });
+}
+
+// Light theme style modifications
+themeMenuOps.forEach(themeOption => {
+  themeOption.addEventListener("click", e => {
+    if (e.target.dataset.theme === "light") {
+      // When chosen theme is "light"
+      handleHomeTheme(true);
+    } else {
+      // When chosen theme is "dark"
+      handleHomeTheme(false);
+    }
+  });
+});
+
+// Create function to toggle target elements class name to modify color styles based on current theme
+function toggleElements(elements, isLight) {
+  elements.forEach(element => {
+    if (isLight) {
+      element.classList.add("light");
+      element.classList.remove("dark");
+    } else {
+      element.classList.remove("light");
+      element.classList.add("dark");
+    }
+  });
+}
+
+function handleHomeTheme(isLight) {
+  const elementsToToggle = [
+    sidebar,
+    sidebarBtn,
+    menuIcon,
+    ...sidebarList,
+    ...resultContainers,
+    ...h2Titles,
+    ...resultFooters,
+    ...messagesIcon,
+  ];
+  // Use "..." operator in order to expand arrays to more elements (inside indexes elements)
+
+  toggleElements(elementsToToggle, isLight);
+}

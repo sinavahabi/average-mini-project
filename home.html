@@ -122,16 +122,17 @@
         <div class="sidebar-menu">
           <div class="btn-container">
             <button class="sidebar-btn">
-              none
+              <i class='fas fa-angle-double-right'></i>
             </button>
           </div>
           <ul class="sidebar-list">
             <li class="sidebar-title">Tips</li>
             <li>Use "Show Activity" button to see recent average mark calculation records</li>
             <li>Click on each item title to edit and save any desired title you want for each record</li>
+            <li>Title edition updates easily happen in real time when you are typing your desired title text</li>
             <li>If you need more help please contact us by sending a message for support <span class="here">
-              <a href="#">here</a>
-            </span>
+                <a href="#">here</a>
+              </span>
             </li>
             <li>Note: You need to login to use website features!</li>
           </ul>
@@ -148,6 +149,17 @@
               <main class="main university">
                 <ul class="scores-list university-scores">
                   <li class="list-title">Recent Calculated Scores:</li>
+                  <li class="list-title intro">
+                    <div class="flex title">
+                      <p class="title">Title</p>
+                    </div>
+                    <div class="flex mark">
+                      <p class="mark">Average Mark</p>
+                    </div>
+                    <div class="flex count">
+                      <p class="count">Counter</p>
+                    </div>
+                  </li>
                   <!-- New calculated data -->
                 </ul>
                 <button class="university activity" title="check recent university activity">Show Activity</button>
@@ -168,6 +180,17 @@
               <main class="main school">
                 <ul class="scores-list school-scores">
                   <li class="list-title">Recent Calculated Scores:</li>
+                  <li class="list-title intro">
+                    <div class="flex title">
+                      <p class="title">Title</p>
+                    </div>
+                    <div class="flex mark">
+                      <p class="mark">Average Mark</p>
+                    </div>
+                    <div class="flex count">
+                      <p class="count">Counter</p>
+                    </div>
+                  </li>
                   <!-- New calculated data -->
                 </ul>
                 <button class="school activity" title="check recent school activity">Show Activity</button>
@@ -180,9 +203,24 @@
 
         </div>
 
-        <div class="wait-message">
-          <p class="wait-text">Wait for the other activity to complete!</p>
+        <div class="msg wait-message">
+          <p class="msg wait-text">Wait for the other activity to complete!</p>
         </div>
+
+        <div class="msg school-update-err">
+          <p class="msg school-update-err">School scores update was not successful!</p>
+        </div>
+        <div class="msg university-update-err">
+          <p class="msg university-update-err">University scores update was not successful!</p>
+        </div>
+
+        <div class="msg school-update">
+          <p class="msg school-update">School scores successfully updated</p>
+        </div>
+        <div class="msg university-update">
+          <p class="msg university-update">University scores successfully updated</p>
+        </div>
+
       </div>
     </section>
   </main>
