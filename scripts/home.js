@@ -15,6 +15,10 @@ const universityMainElem = document.querySelector("main.university");
 const schoolMainElem = document.querySelector("main.school");
 const universityList = document.querySelector("ul.university-scores");
 const schoolList = document.querySelector("ul.school-scores");
+const emptyUniversityRecord = document.querySelector("li.empty-university");
+const emptySchoolRecord = document.querySelector("li.empty-school");
+const universityTitles = document.querySelector("main.university li.list-title.intro");
+const schoolTitles = document.querySelector("main.school li.list-title.intro");
 const errorContainer = document.querySelector("div.err-container");
 const closeError = document.querySelector("button.close-err");
 const waitMessage = document.querySelector("div.wait-message");
@@ -91,21 +95,38 @@ const handleRequest = (path, mainElem, listElem, isUniversity) => {
 
       // Handle received data and add it to DOM
       setTimeout(() => {
-        data.map((item, index) => {
-          const newListItem = document.createElement("li");
-          newListItem.classList = `list-score-${index + 1}`;
-          newListItem.innerHTML = `
-          <h4 class="score-title">
-            <input class="items-title input-${item.id}" type="text" value="${item.title}"/>
-          </h4>
-          <p class="score-number">${item.score}</p>
-          <span class="counter">
-            <i class='fas fa-circle'></i>${index + 1}
-          </span>
-        `;
+        // When there is no recent data on server
+        if (data.length === 0) {
+          if (isUniversity) {
+            // When this state happens on university data record
+            emptyUniversityRecord.style.display = "block";
+          } else {
+            // When this state happens on university data record
+            emptySchoolRecord.style.display = "block";
+          }
+        } else {
+          // Show titles and data 
+          if (isUniversity) {
+            universityTitles.style.display = "flex";
+          } else {
+            schoolTitles.style.display = "flex";
+          }
+          data.map((item, index) => {
+            const newListItem = document.createElement("li");
+            newListItem.classList = `list-score-${index + 1}`;
+            newListItem.innerHTML = `
+              <h4 class="score-title">
+                <input title="edit title" class="items-title input-${item.id}" type="text" value="${item.title}"/>
+              </h4>
+              <p class="score-number">${item.score}</p>
+              <span class="counter">
+                <i class='fas fa-circle'></i>${index + 1}
+              </span>
+            `;
 
-          listElem.append(newListItem);
-        });
+            listElem.append(newListItem);
+          });
+        }
       }, 500);
 
       // Using input elements to modify each average mark calculation record by user choice

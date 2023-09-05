@@ -149,24 +149,37 @@ ul.scores-list li {
   flex-wrap: wrap;
 }
 
-ul.scores-list li:not(.list-title)::before {
+ul.scores-list li:not(.list-title, .empty)::before {
   content: "\f138";
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   margin-right: .4em;
 }
 
-ul.school-scores li:not(.list-title)::before {
+ul.school-scores li:not(.list-title, .empty)::before {
   color: slateblue;
 }
 
-ul.university-scores li:not(.list-title)::before {
+ul.university-scores li:not(.list-title, .empty)::before {
   color: rgb(0, 255, 106);
 }
 
 li.list-title {
   margin-bottom: .6em !important;
   font: italic bold 1.5rem Raleway !important;
+}
+
+ul.scores-list li.empty {
+  display: none;
+  border: 2px solid #ff7800;
+  color: #ff7800;
+  border-radius: .2em;
+  padding: .2em .4em;
+  text-align: center;
+}
+
+ul.scores-list li.list-title.intro {
+  display: none;
 }
 
 ul.scores-list div.flex {
