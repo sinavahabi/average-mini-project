@@ -202,7 +202,7 @@ ul.scores-list div.count {
 
 ul.scores-list div.flex p {
   margin: auto;
-} 
+}
 
 input.items-title {
   background-color: transparent;
@@ -255,7 +255,7 @@ main.university span.counter {
 }
 
 main.school span.counter {
-  background-color: cornflowerblue;
+  background-color: slateblue;
 }
 
 span.counter i {
@@ -420,8 +420,14 @@ p.university-update::after {
 footer.result-footer {
   border-top: 2px dashed #ddd;
   padding: .6rem;
-  font-style: italic;
   font-size: 1.2rem;
+  display: none;
+}
+
+footer.result-footer::first-line {
+  color: #0070ff;
+  font-style: italic;
+  font-size: 1.35rem;
 }
 
 /* List theme styles */

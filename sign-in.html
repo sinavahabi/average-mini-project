@@ -10,19 +10,19 @@
 </head>
 
 <body>
-  <div class="submit-error">
-    <p class="submit-error">Fix invalid form values and try again!</p>
-    <button type="button" class="close">
-      <i class="fas fa-chevron-circle-down" title="hide error"></i>
-    </button>
-  </div>
-  <div class="submit-success">
-    <p class="submit-success">
-      Logged in successfully<i class='fas fa-user-check'></i>
-    </p>
+  <div class="message-container">
+    <div class="message fetch-error">
+      <p class="fetch-err">Login failed. Please try again later!</p>
+    </div>
+    <div class="message success-submit">
+      <p class="success-submit">Login successful</p>
+    </div>
+    <div class="message incorrect">
+      <p class="incorrect">Incorrect email or password!</p>
+    </div>
   </div>
   <div class="form">
-    <form action="index.html">
+    <form action="home.html">
       <div class="elem-container email">
         <input class="email" id="email" placeholder="Email" type="email" required>
       </div>
@@ -42,7 +42,7 @@
     <span class="sign-up sign-in">Don't have an account?</span>
     <a href="sign-up.html" class="sign-up sign-in">Sign Up</a>
   </div>
-  <!-- <script src="scripts/sign-up.js"></script> -->
+  <script src="scripts/sign-in.js"></script>
 </body>
 
 </html>

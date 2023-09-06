@@ -35,3 +35,57 @@ span.sign-up {
 a.sign-up {
   font-size: 1.5rem;
 }
+
+/* Messages styles */
+div.message-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+div.message {
+  opacity: 0;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: .5em .2em;
+  margin: 1rem;
+  border-radius: .2em;
+  font-size: 1.2rem;
+  transition: opacity 1s ease;
+}
+
+div.fetch-error {
+  background-color: #ff183e;
+  flex-grow: 2;
+}
+
+div.incorrect {
+  background-color: #ff183e;
+  flex-grow: 2;
+}
+
+div.fetch-error::before,
+div.incorrect::before {
+  content: "\f06a";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #fff;
+  margin-right: .3em;
+}
+
+div.success-submit {
+  background-color: #00a558;
+  flex-grow: 3;
+}
+
+div.success-submit::after {
+  content: "\f046";
+  font-family: "Font Awesome 5 free";
+  font-weight: 900;
+  color: #fff;
+  margin-left: .3em;
+}

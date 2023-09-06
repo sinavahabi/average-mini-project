@@ -20,6 +20,8 @@ const resultTexts = document.querySelectorAll("div.result span.result");
 const resultSpan = document.querySelector("div.result span.final");
 const againButtonContainer = document.querySelector("div.again-container");
 const againButton = document.querySelector("div.again-container a");
+const postErr = document.querySelector("div.post-err");
+const postSuccess = document.querySelector("div.post-success");
 
 // Access to current page URL
 const currentURL = window.location.href;
@@ -65,6 +67,10 @@ let sumResult = 0;
 
 // Initialize number variable for school calculation process
 let schoolMarkSum = 0;
+
+// Initialize needed variables for posting final output data to server
+let postObj = {};
+// let idCount = 1;
 
 // Define a function  to disable or enable a specific button element on different circumstances
 function buttonHandler(buttonElem, disabledVal, opacityVal, cursorVal) {
@@ -411,7 +417,7 @@ function handleCalculation() {
 
     // Divide --> |sum (mark number * unit count) / sum (unit count)|
     let finalOutput = sumResult / sumUnit;
-    handleOutputResult(finalOutput, 12);
+    handleOutputResult(finalOutput, 12, "university-scores");
 
   } else {
     // When page URL is "school.html" file name
@@ -420,13 +426,13 @@ function handleCalculation() {
     });
 
     let schoolFinalOutput = schoolMarkSum / Number(marksInput.length);
-    handleOutputResult(schoolFinalOutput, 10);
+    handleOutputResult(schoolFinalOutput, 10, "school-scores");
   }
 
 }
 
 // Create following function to implement same styles for both university and school final outputs
-function handleOutputResult(finalOutputVal, checkNum) {
+function handleOutputResult(finalOutputVal, checkNum, path) {
   // Change output display colors on UI accordingly 
   if (finalOutputVal >= 17) {
     resultSpan.style.color = "#1ee61e";
@@ -439,6 +445,15 @@ function handleOutputResult(finalOutputVal, checkNum) {
 
   // Make output number length limited to 5 characters
   finalOutputVal = String(finalOutputVal).slice(0, 5);
+
+  // Post data
+  postObj = {
+    title: "New Average Mark",
+    score: finalOutputVal,
+    date: new Date()
+  };
+  postData(path, postObj);
+
   resultSpan.innerHTML = `${finalOutputVal}`;
   return resultSpan;
 }
@@ -543,5 +558,32 @@ function handleMainTheme() {
     darkInputs.forEach(darkInput => {
       darkInput.classList.remove("main-light");
     });
+  }
+}
+
+async function postData(path, dataObj) {
+  try {
+    // Requesting API from server with 'POST' method
+    const response = await fetch(`https://64f35596edfa0459f6c6808d.mockapi.io/${path}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(dataObj)
+    });
+
+    if (response.ok) {
+      // Show success message
+      postSuccess.style.top = "54px";
+      setTimeout(() => {
+        postSuccess.style.top = "6px";
+      }, 5000);
+    } else {
+      throw new Error("an error occurred!");
+    }
+  } catch (error) {
+    // Show error message
+    postErr.style.top = "54px";
+    setTimeout(() => {
+      postErr.style.top = "6px";
+    }, 5000);
   }
 }

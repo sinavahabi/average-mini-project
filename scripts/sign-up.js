@@ -1,6 +1,7 @@
 "use strict";
 
 // Get elements by DOM searching
+const errMessages = document.querySelectorAll("div.msg");
 const form = document.querySelector("form");
 const submitBtn = document.querySelector("button.submit-btn");
 const inputs = document.querySelectorAll("input");
@@ -13,6 +14,9 @@ const handlePassIcon = document.querySelector("button.check-pass i");
 
 // Create form validator error element
 const errorContainer = document.createElement("div");
+
+// Initialize an empty object for posting user info to server
+let userObj = {};
 
 // Define function to handle error messages
 const handleError = (classNameValue, innerTextValue, inputElem, inputElemContainer) => {
@@ -109,17 +113,11 @@ submitBtn.addEventListener("click", e => {
   if (form.checkValidity()) {
     // Prevent button default submit action 
     e.preventDefault();
-
     // Hide submit error message
     submitError.style.display = "none";
-    submitSuccess.style.top = "0";
-    // Disable submit button
-    e.target.disabled = true;
 
-    // Submit form after 3 seconds and undo submit button prevent default action
-    setTimeout(() => {
-      form.submit();
-    }, 3000)
+    // Check unique email validity
+    checkEmail(inputs[2].value, inputs[3].value);
   } else {
     // Display error message on UI and prevent default action of submit button on form element
     e.preventDefault();
@@ -128,3 +126,73 @@ submitBtn.addEventListener("click", e => {
   }
 });
 
+// Define an asynchronous function to save email and password
+async function userInfo(emailVal, passVal) {
+  // Assign user email and password as object key values
+  userObj = {
+    email: emailVal,
+    password: passVal
+  };
+
+  try {
+    const response = await fetch('https://64f85855824680fd217f6f48.mockapi.io/users', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(userObj)
+    });
+
+    if (response.ok) {
+      // Show submit success message
+      submitSuccess.style.top = "0";
+      // Disable submit button
+      submitBtn.disabled = true;
+
+      // Submit form after 3 seconds and undo submit button prevent default action
+      setTimeout(() => {
+        form.submit();
+      }, 3000);
+    } else {
+      throw new Error("ann error occurred");
+    }
+  } catch (error) {
+    // When there is server issues or etc. while attempting to send data using "POST" method
+    errMessages[2].style.transform = "translateX(-5%)";
+    submitBtn.disabled = true;
+  }
+}
+
+// Define an asynchronous function to check if email is not already registered
+async function checkEmail(emailVal, passVal) {
+  try {
+    const response = await fetch('https://64f85855824680fd217f6f48.mockapi.io/users', {
+      method: 'GET',
+      headers: { 'content-type': 'application/json' },
+    });
+
+    if (!response.ok) {
+      throw new Error("ann error occurred");
+    }
+
+    const data = await response.json();
+
+    data.map(item => {
+      if (item.email === emailVal) {
+        // When user is attempting to use already registered email to sign-up again
+        errMessages[1].style.transform = "translateX(5%)";
+
+        setTimeout(() => {
+          errMessages[1].style.transform = "translateX(100%)";
+        }, 3500);
+      } else {
+        // When email is not duplicated anymore
+        errMessages[1].style.transform = "translateX(100%)";
+        // Post data to server
+        userInfo(emailVal, passVal);
+      }
+    });
+  } catch (error) {
+    // When there is server issues or etc. while attempting to get email data using "GET" method
+    errMessages[0].style.transform = "translateX(-5%)";
+    submitBtn.disabled = true;
+  }
+}

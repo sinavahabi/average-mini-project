@@ -112,6 +112,16 @@ const handleRequest = (path, mainElem, listElem, isUniversity) => {
             schoolTitles.style.display = "flex";
           }
           data.map((item, index) => {
+            const dateString = String(item.date);
+            const inputDate = new Date(dateString);
+
+            const year = inputDate.getFullYear();
+            const month = String(inputDate.getMonth() + 1).padStart(2, '0');
+            const day = String(inputDate.getDate()).padStart(2, '0');
+            const hours = String(inputDate.getUTCHours() + 3).padStart(2, '0'); // Add 3 hours 
+            const minutes = String(inputDate.getUTCMinutes() + 30).padStart(2, '0'); // Add 30 minutes
+            const time = `Date: ${year}-${month}-${day} | Time: ${hours}:${minutes}`;
+
             const newListItem = document.createElement("li");
             newListItem.classList = `list-score-${index + 1}`;
             newListItem.innerHTML = `
@@ -125,6 +135,14 @@ const handleRequest = (path, mainElem, listElem, isUniversity) => {
             `;
 
             listElem.append(newListItem);
+
+            if (isUniversity) {
+              resultFooters[0].style.display = "block";
+              resultFooters[0].innerHTML = `The last time the "University" GPA was calculated<br><br>${time}`;
+            } else {
+              resultFooters[1].style.display = "block";
+              resultFooters[1].innerHTML = `The last time the "School" GPA was calculated<br><br>${time}`;
+            }
           });
         }
       }, 500);

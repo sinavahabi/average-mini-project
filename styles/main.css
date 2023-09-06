@@ -6,6 +6,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   min-height: 88vh;
+  margin-top: 3rem;
 }
 
 aside {
@@ -469,4 +470,24 @@ input.main-light {
   color: #333;
   background-color: transparent;
   border: 2px solid #333;
+}
+
+/* Post error message and success message styles */
+div.post {
+  text-align: center;
+  padding: .3em 0;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 100%;
+  transition: top 1.5s ease-in-out 1s;
+}
+
+div.post-err {
+  background-color: #ff6529;
+}
+
+div.post-success {
+  background-color: #00b7ff;
 }
