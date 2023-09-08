@@ -2,7 +2,7 @@
 
 /* main content styling */
 .row {
-  display: flex;
+  display: none;
   justify-content: space-around;
   flex-wrap: wrap;
   min-height: 88vh;
@@ -26,6 +26,7 @@ main {
 
 /* First  section */
 .question-container {
+  display: none;
   position: absolute;
   width: 100%;
 }

@@ -113,15 +113,36 @@ const handleRequest = (path, mainElem, listElem, isUniversity) => {
           }
           data.map((item, index) => {
             const dateString = String(item.date);
-            const inputDate = new Date(dateString);
+            const lastUpdate = new Date(dateString);
+            const currentDate = new Date();
 
-            const year = inputDate.getFullYear();
-            const month = String(inputDate.getMonth() + 1).padStart(2, '0');
-            const day = String(inputDate.getDate()).padStart(2, '0');
-            const hours = String(inputDate.getUTCHours() + 3).padStart(2, '0'); // Add 3 hours 
-            const minutes = String(inputDate.getUTCMinutes() + 30).padStart(2, '0'); // Add 30 minutes
-            const time = `Date: ${year}-${month}-${day} | Time: ${hours}:${minutes}`;
+            // Calculate the time difference in milliseconds
+            const timeDifference = currentDate - lastUpdate;
 
+            // Calculate days, hours, and minutes
+            const daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hoursPassed = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutesPassed = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+            // Create the formatted string
+            let formattedTime;
+
+            if (daysPassed > 0) {
+              formattedTime = `${daysPassed} day${daysPassed > 1 ? 's' : ''} ago`;
+            } else if (hoursPassed > 0) {
+              if (minutesPassed > 0) {
+                formattedTime = `${hoursPassed} hour${hoursPassed > 1 ? 's' : ''} and ${minutesPassed} minute${minutesPassed > 1 ? 's' : ''} ago`;
+              } else {
+                formattedTime = `${hoursPassed} hour${hoursPassed > 1 ? 's' : ''} ago`;
+              }
+            } else {
+              formattedTime = `${minutesPassed} minute${minutesPassed > 1 ? 's' : ''} ago`;
+            }
+
+            // Final time output
+            const time = `${formattedTime}`;
+
+            // Add new li elements with data inside each one
             const newListItem = document.createElement("li");
             newListItem.classList = `list-score-${index + 1}`;
             newListItem.innerHTML = `
@@ -138,10 +159,10 @@ const handleRequest = (path, mainElem, listElem, isUniversity) => {
 
             if (isUniversity) {
               resultFooters[0].style.display = "block";
-              resultFooters[0].innerHTML = `The last time the "University" GPA was calculated<br><br>${time}`;
+              resultFooters[0].innerHTML = `The last time the "University" GPA was calculated:<br>${time}`;
             } else {
               resultFooters[1].style.display = "block";
-              resultFooters[1].innerHTML = `The last time the "School" GPA was calculated<br><br>${time}`;
+              resultFooters[1].innerHTML = `The last time the "School" GPA was calculated:<br>${time}`;
             }
           });
         }

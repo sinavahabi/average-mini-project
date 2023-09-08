@@ -21,7 +21,7 @@
                 <span class="university-header">University</span> Average Mark Calculation
               </h1>
             </div>
-            <div class="register">
+            <div class="register" hidden>
               <ul class="nav-list yellow" id="register">
                 <li title="sign-in" class="sign-in">
                   <a href="sign-in.html">
@@ -32,6 +32,15 @@
                   <a href="sign-up.html">
                     <i class='fas fa-user'></i>Sign-up
                   </a>
+                </li>
+              </ul>
+            </div>
+            <div class="exit" hidden>
+              <ul class="nav-list yellow">
+                <li title="log out" class="exit">
+                  <button class="exit yellow">
+                    <i class="material-icons exit">exit_to_app</i>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -112,6 +121,27 @@
           </div>
         </nav>
       </section>
+      <section class="user-log">
+        <div class="fail logout-failed">
+          <p class="fail logout-failed">Account logout is not possible at the moment!</p>
+        </div>
+        <div class="fail login-fetch-err">
+          <p class="fail login-fetch-err">Couldn't fetch data from the server!</p>
+        </div>
+        <div class="logout-process">
+          <p class="logout-process">
+            Logging out...
+          </p>
+        </div>
+        <div class="not-logged-in">
+          <div class="login-container">
+            <span class="not-logged-in">To use website features you need to login first.</span>
+            <a href="sign-in.html" class="not-logged-in" title="sign-in here">
+              Login Here
+            </a>
+          </div>
+        </div>
+      </section>
       <section class="question">
         <div class="question-container">
           <div class="question">
@@ -129,7 +159,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row page-content">
     <main>
       <div class="main-container">
         <section class="calculate">
@@ -218,6 +248,7 @@
   </div>
 
   <script src="scripts/customize.js"></script>
+  <script src="scripts/login-check.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 

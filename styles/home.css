@@ -3,6 +3,7 @@
 
 main#main {
   margin-top: 8%;
+  display: none;
 }
 
 .container {
@@ -422,11 +423,13 @@ footer.result-footer {
   padding: .6rem;
   font-size: 1.2rem;
   display: none;
+  line-height: 1.7rem;
+  font-style: italic;
 }
 
 footer.result-footer::first-line {
   color: #0070ff;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.35rem;
 }
 

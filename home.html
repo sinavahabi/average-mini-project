@@ -17,7 +17,7 @@
         <div class="logo">
           <h1>Average Mark Calculation Website</h1>
         </div>
-        <div class="register">
+        <div class="register" hidden>
           <ul class="nav-list yellow" id="register">
             <li title="sign-in" class="sign-in">
               <a href="sign-in.html">
@@ -28,6 +28,15 @@
               <a href="sign-up.html">
                 <i class='fas fa-user'></i>Sign-up
               </a>
+            </li>
+          </ul>
+        </div>
+        <div class="exit" hidden>
+          <ul class="nav-list yellow">
+            <li title="log out" class="exit">
+              <button class="exit yellow">
+                <i class="material-icons exit">exit_to_app</i>
+              </button>
             </li>
           </ul>
         </div>
@@ -106,6 +115,25 @@
         </div>
       </div>
     </nav>
+    <div class="fail logout-failed">
+      <p class="fail logout-failed">Account logout is not possible at the moment!</p>
+    </div>
+    <div class="fail login-fetch-err">
+      <p class="fail login-fetch-err">Couldn't fetch data from the server!</p>
+    </div>
+    <div class="logout-process">
+      <p class="logout-process">
+        Logging out...
+      </p>
+    </div>
+    <div class="not-logged-in">
+      <div class="login-container">
+        <span class="not-logged-in">To use website features you need to login first.</span>
+        <a href="sign-in.html" class="not-logged-in" title="sign-in here">
+          Login Here
+        </a>
+      </div>
+    </div>
     <div class="err-container" hidden>
       <div class="fetch-error">
         <p class="err-text">We're having some difficulties right now!</p>
@@ -116,7 +144,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" class="page-content">
     <section class="outputs">
       <div class="container">
         <div class="sidebar-menu">
@@ -131,7 +159,7 @@
             <li>Click on each item title to edit and save any desired title you want for each record</li>
             <li>Title edition updates easily happen in real time when you are typing your desired title text</li>
             <li>If you need more help please contact us by sending a message for support <span class="here">
-                <a href="#">here</a>
+                <a href="help.html" target="_blank">here</a>
               </span>
             </li>
             <li>Note: You need to login to use website features!</li>
@@ -243,6 +271,7 @@
   </div>
 
   <script src="scripts/customize.js"></script>
+  <script src="scripts/login-check.js"></script>
   <script src="scripts/home.js"></script>
 </body>
 

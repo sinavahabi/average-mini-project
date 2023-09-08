@@ -131,7 +131,8 @@ async function userInfo(emailVal, passVal) {
   // Assign user email and password as object key values
   userObj = {
     email: emailVal,
-    password: passVal
+    password: passVal,
+    loggedIn: false
   };
 
   try {
@@ -174,22 +175,21 @@ async function checkEmail(emailVal, passVal) {
     }
 
     const data = await response.json();
+    const isEmailRegistered = data.some(item => item.email === emailVal)
 
-    data.map(item => {
-      if (item.email === emailVal) {
-        // When user is attempting to use already registered email to sign-up again
-        errMessages[1].style.transform = "translateX(5%)";
+    // When "some" method return value is true and email is already registered
+    if (isEmailRegistered) {
+      errMessages[1].style.transform = "translateX(5%)";
 
-        setTimeout(() => {
-          errMessages[1].style.transform = "translateX(100%)";
-        }, 3500);
-      } else {
-        // When email is not duplicated anymore
+      setTimeout(() => {
         errMessages[1].style.transform = "translateX(100%)";
-        // Post data to server
-        userInfo(emailVal, passVal);
-      }
-    });
+      }, 3500);
+    } else {
+      // When email is not duplicated anymore
+      errMessages[1].style.transform = "translateX(100%)";
+      // Post data to server
+      userInfo(emailVal, passVal);
+    }
   } catch (error) {
     // When there is server issues or etc. while attempting to get email data using "GET" method
     errMessages[0].style.transform = "translateX(-5%)";

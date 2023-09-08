@@ -90,7 +90,7 @@ customizeOptions.forEach(option => {
       } else {
         menuColorContainer.hidden = false;
 
-        // Modify some styles fore color menu option when theme is light
+        // Modify some styles for color menu option when theme is light
         if (e.target.classList[2] === "light") {
           e.target.style.borderBottom = "2px solid #333";
         } else {
