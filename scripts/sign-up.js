@@ -132,7 +132,9 @@ async function userInfo(emailVal, passVal) {
   userObj = {
     email: emailVal,
     password: passVal,
-    loggedIn: false
+    loggedIn: false,
+    color: "yellow",
+    theme: "dark"
   };
 
   try {

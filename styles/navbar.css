@@ -87,7 +87,6 @@ ul.nav-list li:nth-child(5):hover {
   background-color: transparent;
 }
 
-li.active a,
 li.active a.yellow {
   color: red;
   font-weight: bold;
@@ -365,7 +364,6 @@ div.logout-process {
 }
 
 /* Navbar color styles */
-li.active a,
 li.active a.purple,
 li.active a.blue,
 li.active a.red {
