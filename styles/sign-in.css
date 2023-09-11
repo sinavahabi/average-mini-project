@@ -89,3 +89,96 @@ div.success-submit::after {
   color: #fff;
   margin-left: .3em;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+  button.check-pass {
+    top: 7px;
+    left: 395px;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  div.message {
+    font-size: 1.1rem;
+    margin: .6rem;
+  }
+
+  button.check-pass {
+    top: 8px;
+    left: 327px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.message-container {
+    flex-direction: column;
+  }
+
+  div.message {
+    width: 90%;
+    font-size: 1.05rem;
+    margin: .4rem;
+  }
+
+  div.form {
+    min-width: 320px;
+    min-height: 280px !important;
+  }
+
+  button.check-pass {
+    top: 10px;
+    left: 252px;
+  }
+
+  span.sign-up {
+    font-size: 1.1rem;
+  }
+
+  a.sign-up {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  div.message-container {
+    flex-direction: column;
+  }
+
+  div.message {
+    width: 90%;
+    font-size: .9rem;
+    margin: .3rem;
+  }
+
+  div.form {
+    min-width: 320px;
+    min-height: 200px !important;
+  }
+
+  button.submit-btn {
+    border: thick solid transparent !important;
+  }
+
+  button.submit-btn:active {
+    border: thick solid#0064ff !important;
+  }
+
+  button.check-pass {
+    top: 4px;
+    left: 259px;
+  }
+
+  span.sign-up {
+    font-size: .9rem;
+  }
+
+  a.sign-up {
+    font-size: 1rem;
+  }
+
+  div.sign-in,
+  div.sign-up {
+    min-width: 320px;
+  }
+}

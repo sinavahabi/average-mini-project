@@ -111,7 +111,7 @@ startButton.addEventListener("click", () => {
   tipsContainer.style.height = "auto";
 
   // Style tips container as it should look like 
-  calculateContainer.style.width = "80%";
+  calculateContainer.style.width = "98%";
   calculateContainer.style.minHeight = "449px";
   calculateContainer.style.height = "auto";
 

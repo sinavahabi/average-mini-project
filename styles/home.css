@@ -277,7 +277,7 @@ div.fetch-error {
   align-items: center;
   position: absolute;
   width: 100%;
-  bottom: -30px;
+  bottom: 45px;
   z-index: 0;
   font-size: 1.5rem;
   transition: bottom 1.5s ease;
@@ -332,7 +332,8 @@ button.activity {
   border: 2px solid transparent;
   position: absolute;
   bottom: 0;
-  left: 38.5%;
+  left: 38%;
+  right: 37%;
   opacity: 1;
   transition: opacity 1s ease;
 }
@@ -478,4 +479,316 @@ p.university-update-err.light::before,
 p.school-update.light::after,
 p.university-update.light::after {
   color: #333;
+}
+
+@media screen and (max-width: 1200px) {
+  div.fetch-error {
+    font-size: 1.2rem;
+    padding: 1.2rem 0 .4rem 0;
+    bottom: 75px;
+  }
+
+  i.close {
+    font-size: 1.2rem;
+  }
+
+  div.sidebar-menu {
+    min-width: 220px;
+    font-size: 1.1em;
+  }
+
+  div.btn-container {
+    top: 265px;
+    left: 213px;
+  }
+
+  button.sidebar-btn {
+    padding: .6rem;
+  }
+
+  div.response-message {
+    font-size: 1.2rem;
+  }
+
+  h2.h2-title {
+    font-size: 1.5rem;
+  }
+
+  li.list-title {
+    font: italic bold 1.3rem Raleway !important;
+  }
+
+  ul.scores-list div.flex {
+    font-size: .9rem;
+  }
+
+  ul.scores-list li {
+    font-size: 1.1rem;
+  }
+
+  input.items-title {
+    font-size: 1.1rem;
+  }
+
+  span.counter i {
+    font-size: .7rem;
+  }
+
+  button.activity {
+    left: 36%;
+    right: 27%;
+    font-size: 1rem;
+    padding: .5rem;
+  }
+
+  footer.result-footer::first-line {
+    color: unset;
+    font-size: 1rem;
+  }
+
+  footer.result-footer {
+    font-size: .9rem;
+    line-height: 1.4rem;
+    font-style: normal;
+  }
+
+  div.msg {
+    font-size: 1.1rem;
+  }
+
+  div.wait-message {
+    width: 36%;
+  }
+
+  div.school-update-err,
+  div.university-update-err {
+    width: 42%;
+  }
+
+  div.school-update,
+  div.university-update {
+    width: 36%;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  div.fetch-error {
+    font-size: 1rem;
+  }
+
+  div.fetch-error {
+    font-size: 1.1rem;
+    padding: 1.1rem 0 .4rem 0;
+    bottom: 60px;
+  }
+
+  i.close {
+    font-size: 1.1rem;
+  }
+
+  div.sidebar-menu {
+    min-width: 180px;
+    font-size: 1em;
+  }
+
+  ul.sidebar-list li.sidebar-title {
+    font-size: 1.15rem;
+  }
+
+  div.btn-container {
+    top: 281px;
+    left: 173px;
+  }
+
+  button.sidebar-btn {
+    padding: .5rem;
+  }
+
+  button.sidebar-btn i.fa-angle-double-left {
+    font-size: .9rem;
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+
+  .result-container {
+    width: 90%;
+    margin: .5em auto;
+  }
+
+  div.response-message {
+    font-size: 1rem;
+  }
+
+  ul.scores-list div.flex {
+    font-size: 1.1rem;
+  }
+
+  button.activity {
+    left: 41%;
+    right: 35%;
+  }
+
+  footer.result-footer::first-line {
+    font-size: .9rem;
+  }
+
+  footer.result-footer {
+    font-size: .8rem;
+    line-height: 1.2rem;
+  }
+
+  div.msg {
+    font-size: 1rem;
+  }
+
+  div.wait-message {
+    width: 45%;
+  }
+
+  div.school-update-err,
+  div.university-update-err {
+    width: 42%;
+  }
+
+  div.school-update,
+  div.university-update {
+    width: 43%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.fetch-error {
+    font-size: .85rem;
+  }
+
+  div.fetch-error {
+    font-size: .9rem;
+    padding: .9rem 0 .3rem 0;
+    bottom: 60px;
+  }
+
+  i.close {
+    font-size: .9rem;
+  }
+
+  div.sidebar-menu {
+    min-width: 150px;
+    font-size: .9em;
+  }
+
+  ul.sidebar-list li.sidebar-title {
+    font-size: 1.1rem;
+  }
+
+  div.btn-container {
+    top: 263px;
+    left: 144px;
+  }
+
+  button.sidebar-btn {
+    padding: .4rem;
+  }
+
+  button.sidebar-btn i.fa-angle-double-left {
+    font-size: .8rem;
+  }
+
+  div.response-message {
+    font-size: .85rem;
+  }
+
+  button.activity {
+    left: 41%;
+    right: 30%;
+    font-size: 0.9rem;
+    padding: .45rem;
+  }
+
+  div.msg {
+    font-size: .9rem;
+  }
+
+  div.wait-message {
+    width: 52%;
+  }
+
+  div.school-update-err,
+  div.university-update-err {
+    width: 58%;
+  }
+
+  div.school-update,
+  div.university-update {
+    width: 52%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  div.fetch-error {
+    font-size: .7rem;
+    padding: .6rem 0 .2rem 0;
+    bottom: 72px;
+  }
+
+  i.close {
+    font-size: .7rem;
+  }
+
+  div.response-message {
+    font-size: .7rem;
+  }
+
+  h2.h2-title {
+    font-size: 1.2rem;
+  }
+
+  li.list-title {
+    font: italic bold 1.1rem Raleway !important;
+  }
+
+  ul.scores-list div.flex {
+    font-size: .8rem;
+  }
+
+  ul.scores-list li {
+    font-size: .9rem;
+  }
+
+  input.items-title {
+    font-size: .9rem;
+  }
+
+  span.counter i {
+    font-size: .5rem;
+  }
+
+  button.activity {
+    left: 42%;
+    right: 42%;
+    font-size: 0.8rem;
+    padding: .3rem;
+  }
+
+  footer.result-footer::first-line {
+    font-size: .8rem;
+  }
+
+  footer.result-footer {
+    font-size: .7rem;
+    line-height: 1rem;
+  }
+
+  div.msg {
+    font-size: .8rem;
+  }
+
+  div.wait-message,
+  div.school-update-err,
+  div.university-update-err,
+  div.school-update,
+  div.university-update {
+    width: 40%;
+  }
 }

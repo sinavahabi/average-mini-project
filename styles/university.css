@@ -43,3 +43,156 @@ i.unit-valid-icon,
 i.unit-error-icon {
   left: 184px;
 }
+
+@media screen and (max-width: 1900px) {
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    bottom: 10px;
+  }
+
+  i.title-valid-icon,
+  i.title-error-icon {
+    left: 299px;
+  }
+
+  i.mark-valid-icon,
+  i.mark-error-icon {
+    left: 209px;
+  }
+
+  i.unit-valid-icon,
+  i.unit-error-icon {
+    left: 159px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar-container h1 {
+    font-size: 1.3rem;
+  }
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    bottom: 9px;
+  }
+
+  i.title-valid-icon,
+  i.title-error-icon {
+    left: 248px;
+  }
+
+  i.mark-valid-icon,
+  i.mark-error-icon {
+    left: 164px;
+  }
+
+  i.unit-valid-icon,
+  i.unit-error-icon {
+    left: 126px;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .navbar-container h1 {
+    font-size: 1.2rem;
+  }
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    font-size: 1.1rem;
+    bottom: 11px;
+  }
+
+  i.title-valid-icon,
+  i.title-error-icon {
+    left: 243px;
+  }
+
+  i.mark-valid-icon,
+  i.mark-error-icon {
+    left: 158px;
+  }
+
+  i.unit-valid-icon,
+  i.unit-error-icon {
+    left: 122px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-container h1 {
+    font-size: 1.1rem;
+  }
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    font-size: 1rem;
+    bottom: 8px;
+  }
+
+  i.title-valid-icon,
+  i.title-error-icon {
+    left: 188px;
+  }
+
+  i.mark-valid-icon,
+  i.mark-error-icon {
+    left: 128px;
+  }
+
+  i.unit-valid-icon,
+  i.unit-error-icon {
+    left: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar-container h1 {
+    font-size: .9rem;
+  }
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    font-size: .9rem;
+    bottom: 9px;
+  }
+
+  i.title-valid-icon,
+  i.title-error-icon {
+    left: 176px;
+  }
+
+  i.mark-valid-icon,
+  i.mark-error-icon {
+    left: 99px;
+  }
+
+  i.unit-valid-icon,
+  i.unit-error-icon {
+    left: 73px;
+  }
+}
+
+@media screen and (max-width: 471px) {
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    bottom: 8px;
+  }
+
+  i.title-valid-icon,
+  i.title-error-icon {
+    left: 112px;
+  }
+
+  i.mark-valid-icon,
+  i.mark-error-icon {
+    left: 32px;
+  }
+
+  i.unit-valid-icon,
+  i.unit-error-icon {
+    left: 17px;
+  }
+}

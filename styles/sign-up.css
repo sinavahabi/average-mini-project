@@ -87,3 +87,158 @@ p.api::first-line {
 p.duplicate-email-err {
   display: inline-block;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 1500px) {
+  div.msg {
+    font-size: 1.2rem;
+  }
+
+  div.data-post-err,
+  div.email-fetch-err {
+    width: 25%;
+  }
+
+  div.duplicate-email-err {
+    width: 35%
+  }
+
+  p.api {
+    font-size: 1.06rem;
+    font-weight: normal;
+  }
+
+  p.api::first-line {
+    font-size: 1.06rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  div.msg {
+    font-size: 1rem;
+  }
+
+  div.api {
+    padding: .3em .2em .3em .7rem;
+    float: left;
+  }
+
+  div.data-post-err,
+  div.email-fetch-err {
+    width: 30%;
+  }
+
+  div.duplicate-email-err {
+    width: 35%
+  }
+
+  p.api {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  p.api::first-line {
+    font-size: 1rem;
+  }
+
+  span.sign-in {
+    font-size: 1.3rem;
+  }
+
+  a.sign-in {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  div.duplicate-email-err {
+    font-size: 1rem;
+    width: 35%;
+  }
+
+  div.data-post-err,
+  div.email-fetch-err {
+    width: 25%;
+  }
+
+  p.api {
+    font-size: .85rem;
+    font-weight: normal;
+  }
+
+  p.api::first-line {
+    font-size: .85rem;
+  }
+
+  span.sign-in {
+    font-size: 1.2rem;
+  }
+
+  a.sign-in {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.msg {
+    font-size: .7rem;
+  }
+
+  div.duplicate-email-err {
+    width: 35%;
+  }
+
+  div.data-post-err,
+  div.email-fetch-err {
+    width: 26%;
+  }
+
+  p.api {
+    font-size: .7rem;
+  }
+
+  p.api::first-line {
+    font-size: .7rem;
+  }
+
+  span.sign-in {
+    font-size: 1rem;
+  }
+
+  a.sign-in {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  div.msg {
+    font-size: .55rem;
+  }
+
+  div.duplicate-email-err {
+    width: 35%;
+  }
+
+  div.data-post-err,
+  div.email-fetch-err {
+    width: 26%;
+  }
+
+  p.api {
+    font-size: .55rem;
+  }
+
+  p.api::first-line {
+    font-size: .55rem;
+  }
+
+  span.sign-in {
+    font-size: .8rem;
+    margin: .3em;
+  }
+
+  a.sign-in {
+    font-size: .9rem;
+    margin: .3em;
+  }
+}

@@ -100,7 +100,7 @@ async function logoutUser() {
       logoutSuccessMsg.style.width = "20%";
       logoutSuccessMsg.style.backgroundColor = "#14bdff";
       logoutSuccessMsg.style.color = "#fff";
-      logoutSuccessMsg.style.minHeight = "50px";
+      logoutSuccessMsg.style.minHeight = "auto";
 
       // Update the UI
       setTimeout(() => {

@@ -449,6 +449,7 @@ aside ul.tips-list li.tip-bottom span.save-tip {
 .again-container {
   text-align: center;
   position: relative;
+  z-index: -1;
   top: 0;
   opacity: 0;
   transition: opacity 1s ease 17s, top 2s ease-in-out 18s;
@@ -491,4 +492,264 @@ div.post-err {
 
 div.post-success {
   background-color: #00b7ff;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1900px) {
+  aside ul.tips-list li {
+    font-size: 1rem;
+  }
+
+  aside ul.tips-list li.tip-bottom span.save-tip {
+    font-size: 1.25rem;
+  }
+
+  button.add,
+  button.calculate-average {
+    font-size: 1.2rem;
+    padding: .9rem;
+  }
+
+  form input {
+    font-size: 1rem;
+    height: 2rem;
+  }
+
+  input.title {
+    width: 13rem;
+  }
+
+  input.mark {
+    width: 7rem;
+  }
+
+  input.unit {
+    width: 5rem;
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+
+  .button-group button {
+    font-size: .9rem;
+    width: 3rem;
+    height: 2rem;
+  }
+
+  button.clear {
+    font-size: 1.1rem;
+    width: 4rem;
+    height: 2rem;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .button-group {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  h2.start {
+    font-size: 1.4rem;
+  }
+
+  button.start {
+    font-size: 1rem;
+  }
+
+  aside ul.tips-list li {
+    font-size: .9rem;
+  }
+
+  aside ul.tips-list li.tip-bottom span.save-tip {
+    font-size: 1.1rem;
+  }
+
+  button.add,
+  button.calculate-average {
+    font-size: 1.1rem;
+    padding: .8rem;
+  }
+
+  form input {
+    font-size: .9rem;
+    height: 2rem;
+  }
+
+  input.title {
+    width: 11rem;
+  }
+
+  input.mark {
+    width: 5.5rem;
+  }
+
+  input.unit {
+    width: 4rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  .button-group button {
+    font-size: .8rem;
+    width: 3rem;
+    height: 2rem;
+  }
+
+  button.clear {
+    font-size: 1rem;
+    width: 4rem;
+    height: 2rem;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .row {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    width: 96%;
+    order: 0;
+  }
+
+  aside {
+    width: 56%;
+    order: 1;
+  }
+
+  div.calculate-error {
+    font-size: 1rem;
+  }
+
+  label {
+    font-size: .9rem;
+  }
+
+  button.clear {
+    font-size: .9rem;
+    width: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h2.start {
+    font-size: 1.1rem;
+  }
+
+  button.start {
+    font-size: .8rem;
+    padding: .5em;
+  }
+
+  button.add,
+  button.calculate-average {
+    font-size: 1rem;
+    padding: .7rem;
+  }
+
+  div.calculate-error {
+    font-size: .8rem;
+  }
+
+  form input {
+    font-size: .8rem;
+    height: 1.5rem;
+  }
+
+  input.title {
+    width: 8rem;
+  }
+
+  input.mark {
+    width: 4rem;
+  }
+
+  input.unit {
+    width: 3rem;
+  }
+
+  label {
+    font-size: .8rem;
+  }
+
+  div.clear-btn {
+    flex-grow: 3;
+    order: 1;
+  }
+
+  button.clear {
+    height: 1.5rem;
+    width: 96%;
+    font-size: .8rem;
+  }
+
+  div.button-group {
+    flex-grow: 4;
+    order: 2;
+  }
+
+  .button-group button {
+    width: 30%;
+    height: 1.5rem;
+    font-size: .6rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  h2.start {
+    font-size: .75rem;
+  }
+
+  button.start {
+    font-size: .6rem;
+    padding: .3em;
+  }
+
+  aside {
+    width: 80%;
+    order: 1;
+  }
+
+  aside ul.tips-list li {
+    font-size: .8rem;
+  }
+
+  aside ul.tips-list li.tip-bottom span.save-tip {
+    font-size: 1rem;
+  }
+
+  button.add,
+  button.calculate-average {
+    font-size: .8rem;
+    padding: .55rem;
+  }
+
+  div.calculate-error {
+    font-size: .65rem;
+  }
+
+
+  form input {
+    font-size: .65rem;
+    height: 1.5rem;
+  }
+
+  input.mark {
+    width: 3rem;
+  }
+
+  input.unit {
+    width: 2rem;
+  }
+
+  label {
+    font-size: .65rem;
+  }
 }

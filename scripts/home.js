@@ -273,7 +273,7 @@ schoolBtn.addEventListener("click", e => {
 // Actions defined for close error button
 closeError.addEventListener("click", e => {
   const errContainer = e.target.parentElement.parentElement;
-  errContainer.style.bottom = "20px";
+  errContainer.style.bottom = "95px";
 });
 
 

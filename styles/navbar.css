@@ -256,7 +256,7 @@ div.login-container {
   position: absolute;
   border: thick outset #8000ff;
   border-radius: .4em;
-  top: 30%;
+  top: 9rem;
   left: 28%;
   font-size: 1.8rem;
   right: 28%;
@@ -311,13 +311,13 @@ div.menu-color-container input.light:hover {
 
 /* Logout and login messages */
 div.fail {
-  transform: translateY(-130%);
+  transform: translateY(-165%);
   width: 35%;
   background-color: #fc113d;
   margin: auto;
   text-align: center;
   padding: 1rem 0;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   border-radius: .3em;
   cursor: default;
 }
@@ -330,14 +330,8 @@ div.login-fetch-err {
   display: none;
 }
 
-p.fail {
-  display: inline;
-}
-
 p.logout-failed {
-  padding: .95rem;
-  border-left: 2px dashed #fff;
-  border-right: 2px dashed #fff;
+  padding: .5rem;
 }
 
 p.login-fetch-err {
@@ -361,6 +355,20 @@ div.logout-process {
   font-size: 1.3rem;
   cursor: default;
   transition: width 1.5s ease, color .6s ease .4s, background-color .2s ease .1s, min-height .1s ease;
+}
+
+div.customize-failed {
+  opacity: 0;
+  cursor: default;
+  position: absolute;
+  background-color: red;
+  font-size: 1.2rem;
+  padding: .5rem;
+  border-radius: .2em;
+  top: 20%;
+  left: 1%;
+  z-index: 2;
+  transition: opacity 1s ease;
 }
 
 /* Navbar color styles */
@@ -405,4 +413,191 @@ p.author {
 p.date {
   color: #ff2e2e;
   font-family: "Cascadia Code";
+}
+
+/* Responsive styles */
+@media screen and (max-width:1200px) {
+  div.fail {
+    font-size: 1.2rem;
+  }
+
+  p.login-fetch-err {
+    padding: .3rem 1.4rem;
+    border: none;
+  }
+
+  div.customize-failed {
+    font-size: 1rem;
+    padding: .4rem;
+  }
+
+  div.logout-process {
+    font-size: 1.1rem;
+    padding: .9rem .2rem;
+  }
+
+  .navbar-container {
+    justify-content: center;
+  }
+
+  div.logo {
+    order: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: .2rem;
+  }
+
+  ul.nav-list li {
+    border: none !important;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  div.fail {
+    font-size: 1.1rem;
+    padding: .7rem 0;
+    width: 30%;
+  }
+
+  p.login-fetch-err {
+    padding: .3rem 1.2rem;
+  }
+
+  div.customize-failed {
+    font-size: .9rem;
+  }
+
+  div.logout-process {
+    font-size: 1rem;
+    padding: .8rem .2rem;
+  }
+
+  div.login-container {
+    font-size: 1.5rem;
+  }
+
+  a.not-logged-in {
+    margin-left: .3em;
+  }
+
+  div.logo {
+    font-size: .9rem;
+  }
+
+  div.select input.option {
+    width: 6rem;
+    font-size: 1rem;
+    padding: .3em .2em;
+  }
+
+  span.pos {
+    left: 70px;
+  }
+
+  span.dark-color {
+    top: 35px;
+  }
+
+  span.light-color {
+    top: 66px;
+  }
+
+  span.yellow-color {
+    top: 66px;
+  }
+
+  span.purple-color {
+    top: 96px;
+  }
+
+  span.blue-color {
+    top: 127px;
+  }
+
+  span.red-color {
+    top: 157px;
+  }
+
+  i.colors {
+    font-size: 1.3rem;
+  }
+
+  footer {
+    font-size: .9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.fail {
+    font-size: .95rem;
+    padding: .6rem 0;
+    width: 30%;
+  }
+
+  p.login-fetch-err {
+    padding: .3rem 1rem;
+  }
+
+  div.customize-failed {
+    font-size: .75rem;
+    padding: .3rem;
+  }
+
+  div.logout-process {
+    font-size: .85rem;
+    padding: .7rem .2rem;
+  }
+
+  div.login-container {
+    font-size: 1.2rem;
+  }
+
+  footer {
+    font-size: .9rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  div.fail {
+    font-size: .8rem;
+    padding: .5rem 0;
+    width: 30%;
+  }
+
+  p.login-fetch-err {
+    padding: .3rem .8rem;
+  }
+
+  div.customize-failed {
+    font-size: .6rem;
+    padding: .2rem;
+  }
+
+  div.logout-process {
+    font-size: .7rem;
+    padding: .6rem .2rem;
+  }
+
+  div.login-container,
+  div.logo,
+  div.navbar-container ul {
+    font-size: .75rem;
+  }
+
+  div.login-container {
+    top: 5rem;
+  }
+
+  ul#menu i {
+    font-size: 1rem;
+  }
+
+  div.navbar-container i.dropdown,
+  button.exit i.exit {
+    font-size: 1.4rem !important;
+  }
+
+  footer {
+    font-size: .8rem;
+  }
 }

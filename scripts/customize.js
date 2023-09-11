@@ -17,6 +17,7 @@ const elementsAffected = document.querySelectorAll(".theme-effective");
 const activeList = document.querySelector("li.active a");
 const mainCalculateContainer = document.querySelector("div.calculate");
 const calculateInputs = document.querySelectorAll("div.form-container div.input-group input");
+const customizeFailedErr = document.querySelector("div.customize-failed");
 
 // Color map object constant
 const colorMapObj = {
@@ -168,7 +169,25 @@ async function handleUserCustomization(method = "GET", keyValue = "", keyProp = 
       activeList.style.color = "red";
     }
   } catch (error) {
-    console.log('An unexpected error occurred. Please try again later.');
+    // Show error message and hide it after 10 seconds
+    customizeFailedErr.style.opacity = 1;
+
+    setTimeout(() => {
+      customizeFailedErr.style.opacity = 0;
+    }, 10000);
+
+    // When "response" constant is not ok!
+    if (error.message === "An error occurred while fetching user data.") {
+      customizeFailedErr.innerText = "An unexpected error occurred! The customization option may not update correctly at the moment...";
+    } else {
+      // When "userObjResponse" variable is not ok!
+      customizeFailedErr.style.left = "unset";
+      customizeFailedErr.style.right = "1%";
+      customizeFailedErr.innerText = "We're having some difficulties! The customization option is disabled at the moment...";
+      dropdownBtn.disabled = true;
+      handleIcon.innerText = "block"
+      selectContainer.style.display = "none";
+    }
   }
 }
 

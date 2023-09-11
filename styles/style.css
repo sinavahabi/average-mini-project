@@ -17,7 +17,7 @@ div.message {
   right: 0;
   font-size: 1.6rem;
   margin: .2rem 1rem;
-} 
+}
 
 p.message {
   display: inline-block;
@@ -75,7 +75,7 @@ p.message {
 
 .img1 {
   width: 80%;
-  height: 700px;
+  height: 80vh;
   border-radius: .5em;
 }
 
@@ -135,7 +135,7 @@ p.message {
   position: absolute;
   font-size: 5vw;
   left: 26vw;
-  bottom: 24vw;
+  bottom: 26vw;
 }
 
 .firstpage h1 {
@@ -172,6 +172,7 @@ div.aside-home-link {
   height: 400px;
   margin: 0 0 0 auto;
   transform: rotate(30deg) translate(305px, 130px);
+  min-width: 400px;
 }
 
 div.main-page {
@@ -182,8 +183,10 @@ div.main-page {
 
 a.home {
   position: absolute;
-  left: 700px;
-  top: 300px;
+  left: 40%;
+  right: 48%;
+  top: 15rem;
+  min-width: 77px;
   text-decoration: none;
   font-size: 2rem;
   padding: 2rem;
@@ -203,4 +206,129 @@ a.home:active {
   border: 2px solid #0070ff;
   color: #0070ff;
   background-color: transparent;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+  .heading {
+    bottom: 30vw;
+  }
+
+  .bg-block {
+    bottom: -13vh;
+  }
+
+  .mg-block {
+    left: -23vw;
+  }
+
+  .fg-block {
+    bottom: -48vh;
+  }
+
+  span.average {
+    color: #835acd;
+    background-color: #f4f4f4;
+    border-radius: .2em;
+  }
+
+  .img1 {
+    height: 70vh;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .heading {
+    bottom: 36vw;
+  }
+
+  .bg-block {
+    bottom: -15vh;
+  }
+
+  .mg-block {
+    left: -20vw;
+  }
+
+  .fg-block {
+    bottom: -50vh;
+  }
+
+  .img1 {
+    height: 60vh;
+  }
+
+  .img2 {
+    left: calc(50vw - 100px);
+    top: 60vw;
+    width: 60vw;
+    height: 40vh;
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heading {
+    bottom: 44vw;
+  }
+
+  .bg-block {
+    bottom: -20vh;
+  }
+
+  .mg-block {
+    bottom: -40vh;
+  }
+
+  .fg-block {
+    bottom: -57vh;
+  }
+
+  .img1 {
+    height: 50vh;
+  }
+
+  .img2 {
+    height: 35vh;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heading {
+    bottom: 30%;
+  }
+
+  .bg-block {
+    bottom: -18vh;
+  }
+
+  .mg-block {
+    bottom: -33vh;
+  }
+
+  .fg-block {
+    bottom: -51vh;
+  }
+
+  .img1,
+  .img2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .img1 {
+    float: left;
+  }
+
+  .img2 {
+    float: right;
+    left: 0;
+    margin-top: 2rem;
+  }
+
+  a.home {
+    left: 36%;
+    right: 47%;
+    padding: .5rem;
+  }
 }
