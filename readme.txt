@@ -2,7 +2,7 @@ Average Mark Calculation Website
 
 Languages: JavaScript, HTML, CSS 
 
-Topics: Vanilla JS, API, JSON, Parallax web page, Theme customize, customizable, Error handling, User interaction, User management, Form validation, Responsive website, Responsive design, Bootstrap5, Font awesome, Git
+Topics: Vanilla JS, API, JSON, Parallax web page, Theme customize, customizable, Error handling, User interaction, User management, Form validation, Responsive website, Responsive design, Flexbox, Bootstrap5, Font awesome, Git
 
 "Note: The main page is "index.html" file for user to begin with."
 
