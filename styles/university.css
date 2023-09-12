@@ -44,6 +44,7 @@ i.unit-error-icon {
   left: 184px;
 }
 
+/* Responsive styles */
 @media screen and (max-width: 1900px) {
 
   i.fa-exclamation-circle,

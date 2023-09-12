@@ -505,7 +505,8 @@ div.post-success {
   }
 
   button.add,
-  button.calculate-average {
+  button.calculate-average,
+  a.again {
     font-size: 1.2rem;
     padding: .9rem;
   }
@@ -555,7 +556,9 @@ div.post-success {
     font-size: 1.4rem;
   }
 
-  button.start {
+  button.start,
+  label,
+  div.post {
     font-size: 1rem;
   }
 
@@ -563,12 +566,14 @@ div.post-success {
     font-size: .9rem;
   }
 
-  aside ul.tips-list li.tip-bottom span.save-tip {
+  aside ul.tips-list li.tip-bottom span.save-tip,
+  p.output-text {
     font-size: 1.1rem;
   }
 
   button.add,
-  button.calculate-average {
+  button.calculate-average,
+  a.again {
     font-size: 1.1rem;
     padding: .8rem;
   }
@@ -590,10 +595,6 @@ div.post-success {
     width: 4rem;
   }
 
-  label {
-    font-size: 1rem;
-  }
-
   .button-group button {
     font-size: .8rem;
     width: 3rem;
@@ -604,6 +605,14 @@ div.post-success {
     font-size: 1rem;
     width: 4rem;
     height: 2rem;
+  }
+
+  div.result {
+    font-size: 1.8em;
+  }
+
+  progress.calculate {
+    font-size: 1.5rem;
   }
 }
 
@@ -636,6 +645,22 @@ div.post-success {
     font-size: .9rem;
     width: 3rem;
   }
+
+  div.result {
+    font-size: 1.8em;
+  }
+
+  progress.calculate {
+    font-size: 1.2rem;
+  }
+
+  p.output-text {
+    font-size: .9rem;
+  }
+
+  div.post {
+    font-size: .85rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -649,12 +674,15 @@ div.post-success {
   }
 
   button.add,
-  button.calculate-average {
+  button.calculate-average,
+  a.again {
     font-size: 1rem;
     padding: .7rem;
   }
 
-  div.calculate-error {
+  div.calculate-error,
+  label,
+  p.output-text {
     font-size: .8rem;
   }
 
@@ -673,10 +701,6 @@ div.post-success {
 
   input.unit {
     width: 3rem;
-  }
-
-  label {
-    font-size: .8rem;
   }
 
   div.clear-btn {
@@ -700,6 +724,19 @@ div.post-success {
     height: 1.5rem;
     font-size: .6rem;
   }
+
+  div.result {
+    font-size: 1.5em;
+  }
+
+  progress.calculate {
+    font-size: 1rem;
+    width: 80%;
+  }
+
+  div.post {
+    font-size: .7rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -717,7 +754,8 @@ div.post-success {
     order: 1;
   }
 
-  aside ul.tips-list li {
+  aside ul.tips-list li,
+  progress.calculate {
     font-size: .8rem;
   }
 
@@ -726,7 +764,8 @@ div.post-success {
   }
 
   button.add,
-  button.calculate-average {
+  button.calculate-average,
+  a.again {
     font-size: .8rem;
     padding: .55rem;
   }
@@ -751,5 +790,17 @@ div.post-success {
 
   label {
     font-size: .65rem;
+  }
+
+  div.result {
+    font-size: 1.1em;
+  }
+
+  p.output-text {
+    font-size: .65rem;
+  }
+
+  div.post {
+    font-size: .7rem;
   }
 }

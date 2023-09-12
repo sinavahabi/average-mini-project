@@ -1,3 +1,9 @@
+/*
+  Program Topic: Average Mark Calculation Website
+  Author: sina vahabi
+  Copyright: 2023/08
+*/
+
 "use strict";
 
 // Get elements by DOM searching

@@ -38,3 +38,127 @@ i.school-mark-error,
 i.school-mark-valid {
   left: 234px;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 1900px) {
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    bottom: 10px;
+  }
+
+  i.school-title-error,
+  i.school-title-valid {
+    left: 301px;
+  }
+
+  i.school-mark-error,
+  i.school-mark-valid {
+    left: 210px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar-container h1 {
+    font-size: 1.3rem;
+  }
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    bottom: 9px;
+  }
+
+  i.school-title-error,
+  i.school-title-valid {
+    left: 249px;
+  }
+
+  i.school-mark-error,
+  i.school-mark-valid {
+    left: 165px;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .navbar-container h1 {
+    font-size: 1.2rem;
+  }
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    font-size: 1.1rem;
+    bottom: 11px;
+  }
+
+  i.school-title-error,
+  i.school-title-valid {
+    left: 244px;
+  }
+
+  i.school-mark-error,
+  i.school-mark-valid {
+    left: 159px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-container h1 {
+    font-size: 1.1rem;
+  }
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    font-size: 1rem;
+    bottom: 8px;
+  }
+
+  i.school-title-error,
+  i.school-title-valid {
+    left: 188px;
+  }
+
+  i.school-mark-error,
+  i.school-mark-valid {
+    left: 128px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar-container h1 {
+    font-size: .9rem;
+  }
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    font-size: .9rem;
+    bottom: 8px;
+  }
+
+  i.school-title-error,
+  i.school-title-valid {
+    left: 176px;
+  }
+
+  i.school-mark-error,
+  i.school-mark-valid {
+    left: 99px;
+  }
+}
+
+@media screen and (max-width: 365px) {
+
+  i.fa-exclamation-circle,
+  i.fa-check-circle {
+    bottom: 8px;
+  }
+
+  i.school-title-error,
+  i.school-title-valid {
+    left: 111px;
+  }
+
+  i.school-mark-error,
+  i.school-mark-valid {
+    left: 31px;
+  }
+}

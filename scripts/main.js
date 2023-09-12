@@ -2,6 +2,7 @@
 
 // Get elements by DOM searching
 const startButton = document.querySelector("button.start");
+const navbar = document.querySelector("nav div.navbar-container");
 const asideElem = document.querySelector("aside");
 const mainElem = document.querySelector("main");
 const tipsContainer = document.querySelector("div.tips");
@@ -518,6 +519,7 @@ function showOutput() {
     }
 
     againButton.title = "wanna go again for another calculation average mark?";
+    againButtonContainer.style.zIndex = 1;
   }, 18000);
 
   resultContainer.style.top = "-450px";
@@ -572,18 +574,18 @@ async function postData(path, dataObj) {
 
     if (response.ok) {
       // Show success message
-      postSuccess.style.top = "54px";
+      postSuccess.style.top = `${navbar.offsetHeight}px`;
       setTimeout(() => {
-        postSuccess.style.top = "6px";
+        postSuccess.style.top = "0";
       }, 5000);
     } else {
       throw new Error("an error occurred!");
     }
   } catch (error) {
     // Show error message
-    postErr.style.top = "54px";
+    postErr.style.top = `${navbar.offsetHeight}px`;
     setTimeout(() => {
-      postErr.style.top = "6px";
+      postErr.style.top = "0";
     }, 5000);
   }
 }

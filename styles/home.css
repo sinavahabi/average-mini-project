@@ -481,6 +481,7 @@ p.university-update.light::after {
   color: #333;
 }
 
+/* Responsive styles */
 @media screen and (max-width: 1200px) {
   div.fetch-error {
     font-size: 1.2rem;
@@ -488,7 +489,8 @@ p.university-update.light::after {
     bottom: 75px;
   }
 
-  i.close {
+  i.close,
+  div.response-message {
     font-size: 1.2rem;
   }
 
@@ -506,10 +508,6 @@ p.university-update.light::after {
     padding: .6rem;
   }
 
-  div.response-message {
-    font-size: 1.2rem;
-  }
-
   h2.h2-title {
     font-size: 1.5rem;
   }
@@ -522,11 +520,9 @@ p.university-update.light::after {
     font-size: .9rem;
   }
 
-  ul.scores-list li {
-    font-size: 1.1rem;
-  }
-
-  input.items-title {
+  ul.scores-list li,
+  input.items-title,
+  div.msg {
     font-size: 1.1rem;
   }
 
@@ -552,11 +548,9 @@ p.university-update.light::after {
     font-style: normal;
   }
 
-  div.msg {
-    font-size: 1.1rem;
-  }
-
-  div.wait-message {
+  div.wait-message,
+  div.school-update,
+  div.university-update {
     width: 36%;
   }
 
@@ -564,15 +558,13 @@ p.university-update.light::after {
   div.university-update-err {
     width: 42%;
   }
-
-  div.school-update,
-  div.university-update {
-    width: 36%;
-  }
 }
 
 @media screen and (max-width: 998px) {
-  div.fetch-error {
+
+  div.fetch-error,
+  div.response-message,
+  div.msg {
     font-size: 1rem;
   }
 
@@ -582,7 +574,8 @@ p.university-update.light::after {
     bottom: 60px;
   }
 
-  i.close {
+  i.close,
+  ul.scores-list div.flex {
     font-size: 1.1rem;
   }
 
@@ -604,7 +597,8 @@ p.university-update.light::after {
     padding: .5rem;
   }
 
-  button.sidebar-btn i.fa-angle-double-left {
+  button.sidebar-btn i.fa-angle-double-left,
+  footer.result-footer::first-line {
     font-size: .9rem;
   }
 
@@ -617,30 +611,14 @@ p.university-update.light::after {
     margin: .5em auto;
   }
 
-  div.response-message {
-    font-size: 1rem;
-  }
-
-  ul.scores-list div.flex {
-    font-size: 1.1rem;
-  }
-
   button.activity {
     left: 41%;
     right: 35%;
   }
 
-  footer.result-footer::first-line {
-    font-size: .9rem;
-  }
-
   footer.result-footer {
     font-size: .8rem;
     line-height: 1.2rem;
-  }
-
-  div.msg {
-    font-size: 1rem;
   }
 
   div.wait-message {
@@ -669,7 +647,8 @@ p.university-update.light::after {
     bottom: 60px;
   }
 
-  i.close {
+  i.close,
+  div.msg {
     font-size: .9rem;
   }
 
@@ -706,22 +685,15 @@ p.university-update.light::after {
     padding: .45rem;
   }
 
-  div.msg {
-    font-size: .9rem;
-  }
-
-  div.wait-message {
+  div.wait-message,
+  div.school-update,
+  div.university-update {
     width: 52%;
   }
 
   div.school-update-err,
   div.university-update-err {
     width: 58%;
-  }
-
-  div.school-update,
-  div.university-update {
-    width: 52%;
   }
 }
 
@@ -732,10 +704,7 @@ p.university-update.light::after {
     bottom: 72px;
   }
 
-  i.close {
-    font-size: .7rem;
-  }
-
+  i.close,
   div.response-message {
     font-size: .7rem;
   }
@@ -748,14 +717,13 @@ p.university-update.light::after {
     font: italic bold 1.1rem Raleway !important;
   }
 
-  ul.scores-list div.flex {
+  ul.scores-list div.flex,
+  footer.result-footer::first-line,
+  div.msg {
     font-size: .8rem;
   }
 
-  ul.scores-list li {
-    font-size: .9rem;
-  }
-
+  ul.scores-list li,
   input.items-title {
     font-size: .9rem;
   }
@@ -771,17 +739,9 @@ p.university-update.light::after {
     padding: .3rem;
   }
 
-  footer.result-footer::first-line {
-    font-size: .8rem;
-  }
-
   footer.result-footer {
     font-size: .7rem;
     line-height: 1rem;
-  }
-
-  div.msg {
-    font-size: .8rem;
   }
 
   div.wait-message,

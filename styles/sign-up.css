@@ -114,7 +114,9 @@ p.duplicate-email-err {
 }
 
 @media screen and (max-width: 1200px) {
-  div.msg {
+
+  div.msg,
+  p.api::first-line {
     font-size: 1rem;
   }
 
@@ -135,10 +137,6 @@ p.duplicate-email-err {
   p.api {
     font-size: 1rem;
     font-weight: normal;
-  }
-
-  p.api::first-line {
-    font-size: 1rem;
   }
 
   span.sign-in {
@@ -180,7 +178,10 @@ p.duplicate-email-err {
 }
 
 @media screen and (max-width: 768px) {
-  div.msg {
+
+  div.msg,
+  p.api,
+  p.api::first-line {
     font-size: .7rem;
   }
 
@@ -191,14 +192,6 @@ p.duplicate-email-err {
   div.data-post-err,
   div.email-fetch-err {
     width: 26%;
-  }
-
-  p.api {
-    font-size: .7rem;
-  }
-
-  p.api::first-line {
-    font-size: .7rem;
   }
 
   span.sign-in {
@@ -211,7 +204,10 @@ p.duplicate-email-err {
 }
 
 @media screen and (max-width: 576px) {
-  div.msg {
+
+  div.msg,
+  p.api,
+  p.api::first-line {
     font-size: .55rem;
   }
 
@@ -222,14 +218,6 @@ p.duplicate-email-err {
   div.data-post-err,
   div.email-fetch-err {
     width: 26%;
-  }
-
-  p.api {
-    font-size: .55rem;
-  }
-
-  p.api::first-line {
-    font-size: .55rem;
   }
 
   span.sign-in {

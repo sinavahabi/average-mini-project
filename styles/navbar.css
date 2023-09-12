@@ -463,7 +463,9 @@ p.date {
     padding: .3rem 1.2rem;
   }
 
-  div.customize-failed {
+  div.customize-failed,
+  div.logo,
+  footer {
     font-size: .9rem;
   }
 
@@ -478,10 +480,6 @@ p.date {
 
   a.not-logged-in {
     margin-left: .3em;
-  }
-
-  div.logo {
-    font-size: .9rem;
   }
 
   div.select input.option {
@@ -520,10 +518,6 @@ p.date {
 
   i.colors {
     font-size: 1.3rem;
-  }
-
-  footer {
-    font-size: .9rem;
   }
 }
 

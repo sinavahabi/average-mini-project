@@ -1,4 +1,4 @@
-/* Sign up and Sign in page styles */
+/* Sign up and Sign in page common styles */
 
 @import url("https://fonts.googleapis.com/css?family=Raleway:wght@100;200;300;400;500;600;700;800;900");
 
@@ -249,7 +249,8 @@ a.sign-up:visited {
     font-size: 1.3rem;
   }
 
-  input {
+  input,
+  button.submit-btn {
     font-size: 1.3rem;
   }
 
@@ -264,10 +265,6 @@ a.sign-up:visited {
     left: 340px;
   }
 
-  button.submit-btn {
-    font-size: 1.3rem;
-  }
-
   div.sign-in,
   div.sign-up {
     min-width: 470px;
@@ -276,6 +273,7 @@ a.sign-up:visited {
 
 
 @media screen and (max-width: 998px) {
+
   div.submit-error,
   div.submit-success {
     font-size: 1.3rem;
@@ -290,7 +288,8 @@ a.sign-up:visited {
     font-size: 1.2rem;
   }
 
-  input {
+  input,
+  button.submit-btn {
     font-size: 1.2rem;
   }
 
@@ -305,10 +304,6 @@ a.sign-up:visited {
     left: 280px;
   }
 
-  button.submit-btn {
-    font-size: 1.2rem;
-  }
-
   div.sign-in,
   div.sign-up {
     min-width: 400px;
@@ -316,6 +311,7 @@ a.sign-up:visited {
 }
 
 @media screen and (max-width: 768px) {
+
   div.submit-error,
   div.submit-success {
     font-size: 1.1rem;
@@ -334,10 +330,7 @@ a.sign-up:visited {
     font-size: .9rem;
   }
 
-  input {
-    font-size: 1rem;
-  }
-
+  input,
   button.submit-btn {
     font-size: 1rem;
   }
@@ -368,8 +361,11 @@ a.sign-up:visited {
 }
 
 @media screen and (max-width: 576px) {
+
   div.submit-error,
-  div.submit-success {
+  div.submit-success,
+  h1.header,
+  div.elem-container {
     font-size: .8rem;
   }
 
@@ -380,14 +376,6 @@ a.sign-up:visited {
 
   p.error {
     font-size: .6rem;
-  }
-
-  h1.header {
-    font-size: .8rem;
-  }
-
-  div.elem-container {
-    font-size: .8rem;
   }
 
   input {

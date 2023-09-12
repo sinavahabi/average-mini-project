@@ -1,6 +1,6 @@
 'use strict';
 
-// Accessing to nessaccary elements by DOM searching
+// Accessing to necessary elements by DOM searching
 const firstPage = document.querySelector('.firstpage');
 const secondPage = document.querySelector('.secondpage');
 const thirdPage = document.querySelector('.thirdpage');
@@ -13,6 +13,7 @@ const FIRST_PAGE_MAX_SCROLL = 500;
 const FIRST_TRANS_MIN = 400;
 const FIRST_TRANS_MAX = 600;
 const SECONDPAGE_BR = 1100;
+
 // Third page will stay hidden until page scroll reach to desired position
 thirdPage.style.opacity = 0;
 
@@ -46,4 +47,3 @@ document.addEventListener("scroll", () => {
     app.style.transform = `translate3d(0, -${thirdScroll}px,0)`;
   }
 });
-
